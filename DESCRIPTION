@@ -15,4 +15,5 @@ RoxygenNote: 7.2.3
 Imports: 
     curl,
     httr2,
-    sf
+    sf,
+    tibble
