@@ -15,8 +15,8 @@ felt_get_user <- function() {
     httr2::resp_body_json()
 
   tibble::tibble(
-    email = out$data$attributes$email,
     name = out$data$attributes$name,
+    email = out$data$attributes$email,
     id = out$data$id,
     type = out$data$type
   )
