@@ -7,7 +7,7 @@
 felt_get_user()
 }
 \value{
-a \code{tibble} of information about the user
+a \link[tibble:tibble]{tibble::tibble} of information about the user
 }
 \description{
 Obtain information about the user

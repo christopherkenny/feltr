@@ -1,6 +1,6 @@
 #' Obtain information about the user
 #'
-#' @return a `tibble` of information about the user
+#' @return a [tibble::tibble] of information about the user
 #' @export
 #'
 #' @examplesIf has_felt_key()
