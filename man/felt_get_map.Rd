@@ -17,6 +17,6 @@ Get Map Information from Map ID
 }
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-felt_get_map('Phoenix-Arizona-L9Cefd3GJSGuYQaU5tBOlvA')
+felt_get_map('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 \dontshow{\}) # examplesIf}
 }

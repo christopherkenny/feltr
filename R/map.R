@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examplesIf has_felt_key()
-#' felt_get_map('Phoenix-Arizona-L9Cefd3GJSGuYQaU5tBOlvA')
+#' felt_get_map('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 felt_get_map <- function(map_id) {
   req <- httr2::request(base_url = api_url()) |>
     httr2::req_url_path_append('maps', map_id) |>
