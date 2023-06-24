@@ -2,6 +2,7 @@
 
 export(felt_get_map)
 export(felt_get_map_elements)
+export(felt_get_map_layers)
 export(felt_get_user)
 export(get_felt_key)
 export(has_felt_key)

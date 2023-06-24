@@ -2,9 +2,15 @@
 % Please edit documentation in R/map.R
 \name{felt_get_map}
 \alias{felt_get_map}
+\alias{felt_get_map_elements}
+\alias{felt_get_map_layers}
 \title{Get Map Information from Map ID}
 \usage{
 felt_get_map(map_id)
+
+felt_get_map_elements(map_id)
+
+felt_get_map_layers(map_id)
 }
 \arguments{
 \item{map_id}{map identifier from url, from \verb{https://felt.com/map/Map-ID}}
@@ -13,7 +19,11 @@ felt_get_map(map_id)
 a \link[tibble:tibble]{tibble::tibble} for the map
 }
 \description{
-Get Map Information from Map ID
+\itemize{
+\item \code{felt_get_map()} returns identifying information for the map
+\item \code{felt_get_map_layers()} returns information about each layer in the map
+\item \code{felt_get_map_elements()} returns the shapes for each layer in the map
+}
 }
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
