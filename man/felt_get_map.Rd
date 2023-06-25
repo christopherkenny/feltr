@@ -4,6 +4,7 @@
 \alias{felt_get_map}
 \alias{felt_get_map_elements}
 \alias{felt_get_map_layers}
+\alias{felt_get_map_geojson}
 \title{Get Map Information from Map ID}
 \usage{
 felt_get_map(map_id)
@@ -11,6 +12,8 @@ felt_get_map(map_id)
 felt_get_map_elements(map_id)
 
 felt_get_map_layers(map_id)
+
+felt_get_map_geojson(map_id, path = tempfile(fileext = ".geojson"))
 }
 \arguments{
 \item{map_id}{map identifier from url, from \verb{https://felt.com/map/Map-ID}}
@@ -23,10 +26,16 @@ a \link[tibble:tibble]{tibble::tibble} for the map
 \item \code{felt_get_map()} returns identifying information for the map
 \item \code{felt_get_map_layers()} returns information about each layer in the map
 \item \code{felt_get_map_elements()} returns the shapes for each layer in the map
+\item \code{felt_get_map_geojson()} downloads a geojson version of the map and returns the path
+\item \code{felt_get_map_sf} returns an \code{sf} version of the map
 }
 }
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 felt_get_map('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
+felt_get_map_layers('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
+\donttest{
+felt_get_map_elements('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
+}
 \dontshow{\}) # examplesIf}
 }
