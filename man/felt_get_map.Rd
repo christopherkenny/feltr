@@ -5,6 +5,7 @@
 \alias{felt_get_map_elements}
 \alias{felt_get_map_layers}
 \alias{felt_get_map_geojson}
+\alias{felt_get_map_sf}
 \title{Get Map Information from Map ID}
 \usage{
 felt_get_map(map_id)
@@ -14,6 +15,8 @@ felt_get_map_elements(map_id)
 felt_get_map_layers(map_id)
 
 felt_get_map_geojson(map_id, path = tempfile(fileext = ".geojson"))
+
+felt_get_map_sf(map_id)
 }
 \arguments{
 \item{map_id}{map identifier from url, from \verb{https://felt.com/map/Map-ID}}
