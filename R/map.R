@@ -62,6 +62,14 @@ felt_get_map_geojson <- function(map_id, path = tempfile(fileext = '.geojson')) 
                       destfile = path)
 }
 
+#' @rdname felt_get_sf
+#' @export
+felt_get_map_sf <- function(map_id) {
+  curl::curl_download(paste0('https://felt.com/map/', map_id, '.geojson'),
+                      destfile = tempfile(fileext = '.geojson')) |>
+    sf::read_sf()
+}
+
 proc_map <- function(l) {
   tibble::tibble(
     title = l$data$attributes$title,
