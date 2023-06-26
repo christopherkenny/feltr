@@ -19,7 +19,7 @@ felt_get_map_geojson(map_id, path = tempfile(fileext = ".geojson"))
 felt_get_map_sf(map_id)
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Map-ID}}
+\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} for the map

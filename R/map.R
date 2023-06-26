@@ -6,7 +6,7 @@
 #' - `felt_get_map_geojson()` downloads a geojson version of the map and returns the path
 #' - `felt_get_map_sf` returns an `sf` version of the map
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Map-ID`
+#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
 #'
 #' @return a [tibble::tibble] for the map
 #' @export
