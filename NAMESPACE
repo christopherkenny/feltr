@@ -2,6 +2,7 @@
 
 export(felt_add_map_layers)
 export(felt_delete_map_layer)
+export(felt_finish_upload)
 export(felt_get_map)
 export(felt_get_map_elements)
 export(felt_get_map_geojson)

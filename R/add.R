@@ -10,22 +10,27 @@
 #' @export
 #'
 #' @examplesIf has_felt_key()
-#' felt_add_map_layers(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA', 'Towns')
+#' felt_add_map_layers(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA', 'Towns',
+#'                     file_names = fs::path_package('feltr',  'towns.geojson'))
 felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
                                 fill_color = NULL, stroke_color = NULL) {
   # don't support webhooks for now
   webhook_url = NULL
 
+
+  body <- list(
+    file_names = list(fs::path_file(file_names)),
+    name = name,
+    fill_color = fill_color,
+    stroke_color = stroke_color,
+    webhook_url = webhook_url
+  ) |>
+    purrr::discard(is.null)
+
   req <- httr2::request(base_url = api_url()) |>
     httr2::req_url_path_append('maps', map_id, 'layers') |>
     httr2::req_auth_bearer_token(token = get_felt_key()) |>
-    httr2::req_body_json(list(
-      file_names = list(fs::path_file(file_names)), # maybe auto_unbox = FALSE instaed of list
-      name = name,
-      fill_color = fill_color,
-      stroke_color = stroke_color,
-      # webhook_url = webhook_url
-    ))
+    httr2::req_body_json(body, auto_unbox = TRUE)
 
   upload_info <- req |>
     httr2::req_perform() |>
@@ -40,15 +45,9 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
     req_injected(!!!args, file = curl::form_file(file_names))
 
   out <- upload |>
-    httr2::req_perform()# |>
-  #httr2::resp_body_json()
-
-  finish_upload <- httr2::request(base_url = api_url()) |>
-    httr2::req_url_path_append('maps', map_id, 'layers:layer_id', 'finish_upload') |>
-    httr2::req_auth_bearer_token(token = get_felt_key())
-
-  finish_upload |>
     httr2::req_perform()
+
+  finish_upload <- felt_finish_upload(map_id)
 
   upload_info$data$attributes$layer_id
 }
