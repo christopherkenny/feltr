@@ -88,11 +88,12 @@ proc_map_layer <- function(l) {
     id = purrr::map_chr(l$data, 'id'),
     relationships = purrr::map(l$data, .f = function(x) purrr::pluck(x, 'relationships', 'datasets') |>
                                  proc_relationships()),
-    type = purrr::map_chr(l$data, 'type'),
+    type = purrr::map_chr(l$data, 'type')
   )
 }
 
 proc_relationships <- function(l) {
+  if (length(l) == 0) return(NULL)
   tibble::tibble(
     name = purrr::map_chr(l$data, .f = function(x) purrr::pluck(x, 'attributes', 'name')),
     id = purrr::map_chr(l$data, 'id'),

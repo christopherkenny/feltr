@@ -19,12 +19,12 @@ felt_add_map_layers(
 
 \item{file_names}{Files to include}
 
-\item{fill_color}{Color to fill shape with, typically a hexcode. Defaults to \code{NULL}.}
+\item{fill_color}{Color to fill shape with, typically a hexcode. Defaults to \code{NULL}.v}
 
 \item{stroke_color}{Color to outline shape with, typically a hexcode. Defaults to \code{NULL}.}
 }
 \value{
-a string with the created layer
+a string with the id for the created layer
 }
 \description{
 Add Layers to Existing Map

@@ -14,7 +14,7 @@ felt_add_map_layers_url(map_id, url, name = NULL)
 \item{name}{Name of the layer}
 }
 \value{
-TODO
+a \link[tibble:tibble]{tibble::tibble} for the created layer
 }
 \description{
 See \href{https://feltmaps.notion.site/b26d739e80184127872faa923b55d232?pvs=25#3e37f06bc38c4971b435fbff2f4da6cb}{Felt "Upload Anything" documentation}
@@ -22,6 +22,8 @@ for detailed examples of potential URLs.
 }
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-#TODO
+felt_add_map_layers_url(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
+    url = 'https://www.rocklandgis.com/portal/sharing/rest/content/items/73fc78cb0fb04580b4788937fe5ee697/data',
+    name = 'Parks')
 \dontshow{\}) # examplesIf}
 }

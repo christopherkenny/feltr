@@ -2,6 +2,8 @@
 
 export(felt_add_map_layers)
 export(felt_add_map_layers_url)
+export(felt_create_map)
+export(felt_delete_map)
 export(felt_delete_map_layer)
 export(felt_finish_upload)
 export(felt_get_map)

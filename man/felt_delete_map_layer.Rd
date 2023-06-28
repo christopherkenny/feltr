@@ -19,7 +19,7 @@ Delete Layer from an Existing Map
 }
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-layer <- felt_add_map_layers('TBI8sDkmQjuK2GX9CSiHiUA', 'test', fs::path_package('felt', 'towns.geojson'))
-felt_delete_map_layers(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA', layer)
+layer <- felt_add_map_layers('TBI8sDkmQjuK2GX9CSiHiUA', 'test', fs::path_package('feltr', 'towns.geojson'))
+felt_delete_map_layer(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA', layer)
 \dontshow{\}) # examplesIf}
 }
