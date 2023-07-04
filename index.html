@@ -77,22 +77,42 @@
 </div>
 <!-- badges: start -->
 
-<p><code>feltr</code> offers an R interface to the Felt API</p>
+<p><code>feltr</code> offers an R interface to the <a href="https://feltmaps.notion.site/Felt-Public-API-reference-c01e0e6b0d954a678c608131b894e8e1" class="external-link">Felt API</a>. You can create new maps, edit existing maps, and extract data. <code>feltr</code> includes tools for working with layers, which represent geographic data, and elements, which are interactive annotations. Spatial data accessed from the API is transformed to work with ‘sf’.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p>You can install the development version of <code>feltr</code> from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"christopherkenny/feltr"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"christopherkenny/feltr"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="api-key">API Key<a class="anchor" aria-label="anchor" href="#api-key"></a>
+</h2>
+<p>An API key can be obtained by signing into your Felt account and looking under Account Settings at the Integrations tab. Once obtained, it can be loaded for persistent use with <code>feltr::set_felt_key('YOUR KEY', install = TRUE)</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<p>We can create a map, add some data to it, and even delete it.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://christophertkenny.com/feltr/">feltr</a></span><span class="op">)</span></span>
-<span><span class="co">## basic example code</span></span></code></pre></div>
+<span><span class="co">## create a map</span></span>
+<span><span class="va">map</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/felt_create_map.html">felt_create_map</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">'feltr README'</span><span class="op">)</span></span></code></pre></div>
+<p>Then we can add some data to it from a URL.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/felt_add_map_layers_url.html">felt_add_map_layers_url</a></span><span class="op">(</span></span>
+<span>  map_id <span class="op">=</span> <span class="va">map</span><span class="op">$</span><span class="va">id</span>, </span>
+<span>  url <span class="op">=</span> <span class="st">'https://www.rocklandgis.com/portal/sharing/rest/content/items/73fc78cb0fb04580b4788937fe5ee697/data'</span>,</span>
+<span>  name <span class="op">=</span> <span class="st">'Parks'</span></span>
+<span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 0 × 6</span></span>
+<span><span class="co">#&gt; # ℹ 6 variables: name &lt;chr&gt;, status &lt;chr&gt;, progress &lt;dbl&gt;, id &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   type &lt;chr&gt;, relationships &lt;list&gt;</span></span></code></pre></div>
+<p>Finally, we can even delete the map from R.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/felt_delete_map.html">felt_delete_map</a></span><span class="op">(</span>map_id <span class="op">=</span> <span class="va">map</span><span class="op">$</span><span class="va">id</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 204</span></span></code></pre></div>
+<p>This returns a 204 on success.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
