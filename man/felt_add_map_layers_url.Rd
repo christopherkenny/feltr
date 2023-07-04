@@ -22,8 +22,14 @@ for detailed examples of potential URLs.
 }
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-felt_add_map_layers_url(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
-    url = 'https://www.rocklandgis.com/portal/sharing/rest/content/items/73fc78cb0fb04580b4788937fe5ee697/data',
+# split the URL for length reasons
+url <- paste0(
+'https://www.rocklandgis.com/portal/sharing/rest/',
+'content/items/73fc78cb0fb04580b4788937fe5ee697/data'
+)
+felt_add_map_layers_url(
+    map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
+    url = url,
     name = 'Parks')
 \dontshow{\}) # examplesIf}
 }

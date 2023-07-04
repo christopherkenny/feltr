@@ -4,7 +4,7 @@
 \alias{felt_delete_map}
 \title{Delete an existing map}
 \usage{
-felt_delete_map(map_id, layer_id)
+felt_delete_map(map_id)
 }
 \arguments{
 \item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}

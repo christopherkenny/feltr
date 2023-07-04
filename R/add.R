@@ -65,8 +65,14 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
 #' @export
 #'
 #' @examplesIf has_felt_key()
-#' felt_add_map_layers_url(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
-#'     url = 'https://www.rocklandgis.com/portal/sharing/rest/content/items/73fc78cb0fb04580b4788937fe5ee697/data',
+#' # split the URL for length reasons
+#' url <- paste0(
+#' 'https://www.rocklandgis.com/portal/sharing/rest/',
+#' 'content/items/73fc78cb0fb04580b4788937fe5ee697/data'
+#' )
+#' felt_add_map_layers_url(
+#'     map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
+#'     url = url,
 #'     name = 'Parks')
 felt_add_map_layers_url <- function(map_id, url, name = NULL) {
 
