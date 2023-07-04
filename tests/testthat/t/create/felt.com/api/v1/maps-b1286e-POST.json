@@ -1,0 +1,13 @@
+{
+    "data": {
+        "attributes": {
+            "title": "r package test",
+            "url": "https://felt.com/map/r-package-test-q5lqIomRT8GfSQZW7wDJEC"
+        },
+        "id": "q5lqIomRT8GfSQZW7wDJEC",
+        "links": {
+            "self": "https://felt.com/api/v1/maps/q5lqIomRT8GfSQZW7wDJEC"
+        },
+        "type": "map"
+    }
+}

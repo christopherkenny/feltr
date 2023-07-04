@@ -69,34 +69,3 @@ felt_get_map_sf <- function(map_id) {
                       destfile = tempfile(fileext = '.geojson')) |>
     sf::read_sf()
 }
-
-proc_map <- function(l) {
-  tibble::tibble(
-    title = l$data$attributes$title,
-    url = l$data$attributes$url,
-    id = l$data$id,
-    links = l$data$links$self,
-    type = l$data$type
-  )
-}
-
-proc_map_layer <- function(l) {
-  tibble::tibble(
-    name = purrr::map_chr(l$data, .f = function(x) purrr::pluck(x, 'attributes', 'name')),
-    progress = purrr::map_int(l$data, .f = function(x) purrr::pluck(x, 'attributes', 'progress')),
-    status = purrr::map_chr(l$data, .f = function(x) purrr::pluck(x, 'attributes', 'status')),
-    id = purrr::map_chr(l$data, 'id'),
-    relationships = purrr::map(l$data, .f = function(x) purrr::pluck(x, 'relationships', 'datasets') |>
-                                 proc_relationships()),
-    type = purrr::map_chr(l$data, 'type')
-  )
-}
-
-proc_relationships <- function(l) {
-  if (length(l) == 0) return(NULL)
-  tibble::tibble(
-    name = purrr::map_chr(l$data, .f = function(x) purrr::pluck(x, 'attributes', 'name')),
-    id = purrr::map_chr(l$data, 'id'),
-    type = purrr::map_chr(l$data, 'type'),
-  )
-}

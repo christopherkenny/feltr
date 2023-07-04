@@ -1,13 +1,18 @@
 Package: feltr
 Title: Access the Felt API
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person(given = "Christopher T.",
            family = "Kenny",
            role = c("aut", "cre"),
            email = "christopherkenny@fas.harvard.edu",
            comment = c(ORCID = "0000-0002-9386-6860"))
-Description: What the package does (one paragraph).
+Description: Upload, download, and edit internet maps with the Felt API 
+    (<https://feltmaps.notion.site/Felt-Public-API-reference-c01e0e6b0d954a678c608131b894e8e1>). 
+    Allows users to create new maps, edit existing maps, and extract data.
+    Provides tools for working with layers, which represent geographic data, and elements,
+    which are interactive annotations. Spatial data accessed from the API is 
+    transformed to work with 'sf'.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -15,9 +20,15 @@ RoxygenNote: 7.2.3
 Imports: 
     curl,
     fs,
+    geojsonsf,
     httr2,
+    jsonlite,
     purrr,
     rlang,
     sf,
     tibble
 URL: http://christophertkenny.com/feltr/
+Suggests: 
+    httptest2,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
