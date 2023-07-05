@@ -53,8 +53,8 @@ felt_get_map_geojson <- function(map_id, path = tempfile(fileext = '.geojson')) 
 
 #' @rdname felt_get_map
 #' @export
-felt_get_map_sf <- function(map_id) {
+felt_get_map_sf <- function(map_id, path = tempfile(fileext = '.geojson')) {
   curl::curl_download(paste0('https://felt.com/map/', map_id, '.geojson'),
-                      destfile = tempfile(fileext = '.geojson')) |>
+                      destfile = path) |>
     sf::read_sf()
 }

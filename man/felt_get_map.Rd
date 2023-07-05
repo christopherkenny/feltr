@@ -13,7 +13,7 @@ felt_get_map_layers(map_id)
 
 felt_get_map_geojson(map_id, path = tempfile(fileext = ".geojson"))
 
-felt_get_map_sf(map_id)
+felt_get_map_sf(map_id, path = tempfile(fileext = ".geojson"))
 }
 \arguments{
 \item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}

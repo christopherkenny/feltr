@@ -28,17 +28,18 @@ get_felt_key <- function() {
 #'
 #' @param key Character. API key to add to add.
 #' @param overwrite Defaults to FALSE. Boolean. Should existing `FELT_KEY` in Renviron be overwritten?
-#' @param install Defaults to FALSE. Boolean. Should this be added '~/.Renviron' file?
+#' @param install Defaults to FALSE. Boolean. Should this be added to an environment file, `r_env`?
+#' @param r_env Path to install to if `install` is `TRUE`.
 #'
 #' @return key, invisibly
 #' @export
 #'
 #' @examples
-#' \dontrun{
-#' set_felt_key('1234')
-#' }
-#'
-set_felt_key <- function(key, overwrite = FALSE, install = FALSE) {
+#' example_env <- tempfile(fileext = '.Renviron')
+#' set_felt_key('1234', r_env = example_env)
+#' # r_env should likely be: file.path(Sys.getenv('HOME'), '.Renviron')
+set_felt_key <- function(key, overwrite = FALSE, install = FALSE,
+                         r_env = NULL) {
   if (missing(key)) {
     cli::cli_abort('Input {.arg key} cannot be missing.')
   }
@@ -48,7 +49,16 @@ set_felt_key <- function(key, overwrite = FALSE, install = FALSE) {
   names(key) <- name
 
   if (install) {
-    r_env <- file.path(Sys.getenv('HOME'), '.Renviron')
+
+    if (is.null(r_env)) {
+      r_env <- file.path(Sys.getenv('HOME'), '.Renviron')
+      if (interactive()) {
+        utils::askYesNo(paste0('Install to',  r_env, '?'))
+      } else {
+        cli::cli_abort(c('No path set and not run interactively.',
+                         i = 'Rerun with {.arg r_env} set, possibly to {.file {r_env}}'))
+      }
+    }
 
     if (!file.exists(r_env)) {
       file.create(r_env)
@@ -76,9 +86,9 @@ set_felt_key <- function(key, overwrite = FALSE, install = FALSE) {
       writeLines(lines, r_env)
       do.call(Sys.setenv, key)
     }
-  } else {
-    do.call(Sys.setenv, key)
-  }
+  }# else {
+   # do.call(Sys.setenv, key)
+  #}
 
   invisible(key)
 }

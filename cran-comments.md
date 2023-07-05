@@ -1,3 +1,10 @@
+## Resubmission
+This is a resubmission. In this version I have:
+
+* Removed the default writing to the home directory for `set_felt_key()`. If interactive and no path is included, it suggests a default path, but doesn't write unless interactively accepted.
+
+* For consistency, a path argument is added to `felt_get_map_sf()`, which defaults to the temp directory.
+
 ## Test environments
 * local R installation (Windows 11), R 4.3.1
 * local R installation (macOS), R 4.3.0
