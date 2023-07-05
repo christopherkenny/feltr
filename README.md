@@ -29,7 +29,7 @@ remotes::install_github("christopherkenny/feltr")
 An API key can be obtained by signing into your Felt account and looking
 under Account Settings at the Integrations tab. Once obtained, it can be
 loaded for persistent use with
-`feltr::set_felt_key('YOUR KEY', install = TRUE)`.
+`feltr::set_felt_key('YOUR KEY', install = TRUE, r_env = file.path(Sys.getenv('HOME'), '.Renviron'))`.
 
 ## Example
 
