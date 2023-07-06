@@ -37,3 +37,4 @@ Create a new map
 felt_create_map(title = 'feltr example')
 \dontshow{\}) # examplesIf}
 }
+\concept{map}

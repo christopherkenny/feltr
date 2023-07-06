@@ -10,6 +10,8 @@
 #' @return a [tibble::tibble] for the new map
 #' @export
 #'
+#' @concept map
+#'
 #' @examplesIf has_felt_key()
 #' felt_create_map(title = 'feltr example')
 felt_create_map <- function(title = NULL, basemap = NULL, layer_urls = NULL,

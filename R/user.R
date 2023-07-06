@@ -3,6 +3,8 @@
 #' @return a [tibble::tibble] of information about the user
 #' @export
 #'
+#' @concept user
+#'
 #' @examplesIf has_felt_key()
 #' felt_get_user()
 felt_get_user <- function() {

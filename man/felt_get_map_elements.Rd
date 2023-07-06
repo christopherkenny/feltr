@@ -20,3 +20,4 @@ Get Map Elements from Map ID
 felt_get_map_elements(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 \dontshow{\}) # examplesIf}
 }
+\concept{get}

@@ -21,3 +21,4 @@ map <- felt_create_map(title = 'feltr example')
 felt_delete_map(map_id = map$id)
 \dontshow{\}) # examplesIf}
 }
+\concept{map}

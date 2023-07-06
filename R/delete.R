@@ -6,6 +6,8 @@
 #' @return response code
 #' @export
 #'
+#' @concept edit
+#'
 #' @examplesIf has_felt_key()
 #' layer <- felt_add_map_layers('TBI8sDkmQjuK2GX9CSiHiUA',
 #'           'test', fs::path_package('feltr', 'towns.geojson'))
@@ -28,6 +30,8 @@ felt_delete_map_layer <- function(map_id, layer_id) {
 #'
 #' @return response code
 #' @export
+#'
+#' @concept map
 #'
 #' @examplesIf has_felt_key()
 #' map <- felt_create_map(title = 'feltr example')

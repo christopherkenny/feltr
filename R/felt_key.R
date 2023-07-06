@@ -5,6 +5,8 @@
 #'
 #' @name key
 #'
+#' @concept key
+#'
 #' @examples
 #' has_felt_key()
 has_felt_key <- function() {
@@ -33,6 +35,8 @@ get_felt_key <- function() {
 #'
 #' @return key, invisibly
 #' @export
+#'
+#' @concept key
 #'
 #' @examples
 #' example_env <- tempfile(fileext = '.Renviron')

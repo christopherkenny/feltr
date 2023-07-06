@@ -19,3 +19,4 @@ Check or Get Felt API Key
 \examples{
 has_felt_key()
 }
+\concept{key}

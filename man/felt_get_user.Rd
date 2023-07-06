@@ -17,3 +17,4 @@ Obtain information about the user
 felt_get_user()
 \dontshow{\}) # examplesIf}
 }
+\concept{user}

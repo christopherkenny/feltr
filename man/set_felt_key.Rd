@@ -26,3 +26,4 @@ example_env <- tempfile(fileext = '.Renviron')
 set_felt_key('1234', r_env = example_env)
 # r_env should likely be: file.path(Sys.getenv('HOME'), '.Renviron')
 }
+\concept{key}

@@ -5,6 +5,8 @@
 #' @return a [tibble::tibble] for the map
 #' @export
 #'
+#' @concept get
+#'
 #' @examplesIf has_felt_key()
 #' felt_get_map_elements(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 felt_get_map_elements <- function(map_id) {
