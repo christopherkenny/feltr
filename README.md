@@ -17,11 +17,18 @@ from the API is transformed to work with ‘sf’.
 
 ## Installation
 
-You can install the development version of `feltr` from
-[GitHub](https://github.com/) with:
+You can install the stable version of `feltr` from
+[CRAN](https://cran.r-project.org/package=feltr) with:
 
 ``` r
-remotes::install_github("christopherkenny/feltr")
+install.package('feltr')
+```
+
+You can install the development version of `feltr` from
+[GitHub](https://github.com/christopherkenny/feltr) with:
+
+``` r
+remotes::install_github('christopherkenny/feltr')
 ```
 
 ## API Key
