@@ -36,4 +36,4 @@ felt_add_map_layers(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
                     name = 'Towns')
 \dontshow{\}) # examplesIf}
 }
-\concept{edit}
+\concept{edits}

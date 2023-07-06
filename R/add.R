@@ -9,7 +9,7 @@
 #' @return a string with the id for the created layer
 #' @export
 #'
-#' @concept edit
+#' @concept edits
 #'
 #' @examplesIf has_felt_key()
 #' felt_add_map_layers(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
@@ -66,7 +66,7 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
 #' @return a [tibble::tibble] for the created layer
 #' @export
 #'
-#' @concept edit
+#' @concept edits
 #'
 #' @examplesIf has_felt_key()
 #' # split the URL for length reasons

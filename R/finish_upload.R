@@ -8,7 +8,7 @@
 #' @return `httr2` status code
 #' @export
 #'
-#' @concept edit
+#' @concept edits
 #'
 #' @examplesIf has_felt_key()
 #' felt_finish_upload('TBI8sDkmQjuK2GX9CSiHiUA')

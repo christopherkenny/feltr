@@ -8,20 +8,20 @@ reference:
     - has_concept("map")
   - title: Retrieve Existing Information
     desc: Download information about maps, layers, or elements.
-  - concept:
-    - has_concept("gets")
+  - contents:
+    - has_concept("get")
   - title: Edit Maps or Layers
     desc: Edit or upload maps and layers.
-  - concept:
-    - has_concept("edit")
+  - contents:
+    - has_concept("edits")
   - title: Retrieve User Information
     desc: Get information about the user (self) account
-  - concept:
+  - contents:
     - has_concept("user")
   - title: "Other functions"
     desc: "Other functions, including working with keys"
   - contents:
     - has_concept("key")
-    - lacks_concepts(c("map", "gets", "edit", "user"))
+    - lacks_concepts(c("map", "get", "edits", "user", "key"))
 
 

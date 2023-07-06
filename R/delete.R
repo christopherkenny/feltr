@@ -6,7 +6,7 @@
 #' @return response code
 #' @export
 #'
-#' @concept edit
+#' @concept edits
 #'
 #' @examplesIf has_felt_key()
 #' layer <- felt_add_map_layers('TBI8sDkmQjuK2GX9CSiHiUA',
