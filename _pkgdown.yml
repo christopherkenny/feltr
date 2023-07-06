@@ -22,6 +22,6 @@ reference:
     desc: "Other functions, including working with keys"
   - contents:
     - has_concept("key")
-    - lacks_concepts(c("map", "gets", "edit", "user")
+    - lacks_concepts(c("map", "gets", "edit", "user"))
 
 
