@@ -29,7 +29,8 @@ Imports:
     sf,
     stringr,
     tibble
-URL: http://christophertkenny.com/feltr/
+URL: https://github.com/christopherkenny/feltr,
+    https://christophertkenny.com/feltr/
 Suggests: 
     httptest2,
     testthat (>= 3.0.0)
