@@ -9,7 +9,7 @@ reference:
   - title: Retrieve Existing Information
     desc: Download information about maps, layers, or elements.
   - concept:
-    - has_concept("get")
+    - has_concept("gets")
   - title: Edit Maps or Layers
     desc: Edit or upload maps and layers.
   - concept:
@@ -22,6 +22,6 @@ reference:
     desc: "Other functions, including working with keys"
   - contents:
     - has_concept("key")
-    - lacks_concepts(c("map", "get"))
+    - lacks_concepts(c("map", "gets", "edit", "user")
 
 

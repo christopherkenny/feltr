@@ -43,4 +43,4 @@ felt_get_map_elements('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 felt_get_map_sf('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 \dontshow{\}) # examplesIf}
 }
-\concept{get}
+\concept{gets}

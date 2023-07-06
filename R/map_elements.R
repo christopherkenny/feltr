@@ -5,7 +5,7 @@
 #' @return a [tibble::tibble] for the map
 #' @export
 #'
-#' @concept get
+#' @concept gets
 #'
 #' @examplesIf has_felt_key()
 #' felt_get_map_elements(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
