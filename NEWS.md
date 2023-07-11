@@ -1,3 +1,7 @@
+# feltr 0.0.3
+
+* Adds support for the comment export API with `felt_get_comments()`
+
 # feltr 0.0.2
 
 * Adds path arguments to `felt_set_key()` and `felt_get_map_sf()` to ensure compliance with CRAN policies in writing files.
