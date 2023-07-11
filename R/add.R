@@ -101,6 +101,6 @@ felt_add_map_layers_url <- function(map_id, url, name = NULL) {
     progress = out$data$attributes$progress,
     id = out$data$id,
     type = out$data$type,
-    relationships = out$data$relationships$datasets$data
+    relationships = list(out$data$relationships$datasets$data)
   )
 }

@@ -1,6 +1,7 @@
 # feltr 0.0.3
 
-* Adds support for the comment export API with `felt_get_comments()`
+* Adds support for the comment export API with `felt_get_comments()`.
+* Improves consistency in return values for `felt_add_map_layers_url()`.
 
 # feltr 0.0.2
 

@@ -13,7 +13,10 @@
 #' @concept map
 #'
 #' @examplesIf has_felt_key()
-#' felt_create_map(title = 'feltr example')
+#' map <- felt_create_map(title = 'feltr example')
+#' map
+#' # and delete it again
+#' felt_delete_map(map_id = map$id)
 felt_create_map <- function(title = NULL, basemap = NULL, layer_urls = NULL,
                             lat = NULL, lon = NULL, zoom = NULL) {
   if (!is.null(layer_urls)) layer_urls <- as.list(layer_urls)
