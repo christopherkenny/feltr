@@ -8,7 +8,7 @@
 #' @concept comments
 #'
 #' @examplesIf has_felt_key()
-#' felt_get_comments('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
+#' felt_get_comments(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 felt_get_comments <- function(map_id) {
   req <- httr2::request(base_url = api_url()) |>
     httr2::req_url_path_append('maps', map_id, 'comments', 'export') |>
@@ -16,5 +16,6 @@ felt_get_comments <- function(map_id) {
 
   req |>
     httr2::req_perform() |>
-    httr2::resp_body_json()
+    httr2::resp_body_json() |>
+    proc_comments()
 }

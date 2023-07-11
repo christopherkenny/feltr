@@ -48,3 +48,16 @@ proc_elements <- function(l) {
     links = purrr::map_chr(l$links, 'self')
   )
 }
+
+proc_comments <- function(l) {
+  tibble::tibble(
+    author_email = purrr::map_chr(l, .f = function(x) purrr::pluck(x, 'comments', 1, 'authorEmail')),
+    author_name = purrr::map_chr(l, .f = function(x) purrr::pluck(x, 'comments', 1, 'authorName')),
+    created_at = purrr::map_chr(l, .f = function(x) purrr::pluck(x, 'comments', 1, 'createdAt')),
+    comment_id = purrr::map_chr(l, .f = function(x) purrr::pluck(x, 'comments', 1, 'id')),
+    comment_text = purrr::map_chr(l, .f = function(x) purrr::pluck(x, 'comments', 1, 'text')),
+    is_resolved = purrr::map_lgl(l, .f = function(x) purrr::pluck(x, 'isResolved')),
+    lat = purrr::map_dbl(l, .f = function(x) purrr::pluck(x, 'location', 1)),
+    lon = purrr::map_dbl(l, .f = function(x) purrr::pluck(x, 'location', 2))
+  )
+}
