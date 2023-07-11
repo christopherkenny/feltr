@@ -34,7 +34,10 @@ Create a new map
 }
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-felt_create_map(title = 'feltr example')
+map <- felt_create_map(title = 'feltr example')
+map
+# and delete it again
+felt_delete_map(map_id = map$id)
 \dontshow{\}) # examplesIf}
 }
 \concept{map}

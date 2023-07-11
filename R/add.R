@@ -12,9 +12,12 @@
 #' @concept edits
 #'
 #' @examplesIf has_felt_key()
-#' felt_add_map_layers(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
+#' layer <- felt_add_map_layers(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
 #'                     file_names = fs::path_package('feltr',  'towns.geojson'),
 #'                     name = 'Towns')
+#' layer
+#' # and delete layer
+#' felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA', layer_id = layer)
 felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
                                 fill_color = NULL, stroke_color = NULL) {
   # don't support webhooks for now
@@ -74,10 +77,13 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
 #' 'https://www.rocklandgis.com/portal/sharing/rest/',
 #' 'content/items/73fc78cb0fb04580b4788937fe5ee697/data'
 #' )
-#' felt_add_map_layers_url(
+#' layer <- felt_add_map_layers_url(
 #'     map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
 #'     url = url,
 #'     name = 'Parks')
+#' layer
+#' # and delete the new layer
+#' felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',  layer_id = layer$id)
 felt_add_map_layers_url <- function(map_id, url, name = NULL) {
 
   body <- list(

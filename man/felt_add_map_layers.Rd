@@ -31,9 +31,12 @@ Add Layers to Existing Map
 }
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-felt_add_map_layers(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
+layer <- felt_add_map_layers(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
                     file_names = fs::path_package('feltr',  'towns.geojson'),
                     name = 'Towns')
+layer
+# and delete layer
+felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA', layer_id = layer)
 \dontshow{\}) # examplesIf}
 }
 \concept{edits}
