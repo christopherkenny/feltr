@@ -14,6 +14,10 @@ reference:
     desc: Edit or upload maps and layers.
   - contents:
     - has_concept("edits")
+  - title: Work with Felt styles
+    desc: Get and edit json representing the Felt Style Language
+  - contents:
+    - has_concept("style")
   - title: Retrieve User Information
     desc: Get information about the user (self) account
   - contents:
@@ -22,6 +26,6 @@ reference:
     desc: "Other functions, including working with keys"
   - contents:
     - has_concept("key")
-    - lacks_concepts(c("map", "get", "edits", "user", "key"))
+    - lacks_concepts(c("map", "get", "edits", "user", "key", "style"))
 
 
