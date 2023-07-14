@@ -28,7 +28,8 @@ Imports:
     rlang,
     sf,
     stringr,
-    tibble
+    tibble,
+    tidyr
 URL: https://github.com/christopherkenny/feltr,
     https://christophertkenny.com/feltr/
 Suggests: 
