@@ -71,3 +71,7 @@ felt_delete_map(map_id = map$id)
 ```
 
 This returns a 204 on success.
+
+## Related Packages
+
+- [feltr](https://elipousson.github.io/feltr/): There is another R package by Eli Pousson with the same name available on [GitHub](https://github.com/elipousson/feltr).
