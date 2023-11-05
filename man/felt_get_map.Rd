@@ -3,22 +3,14 @@
 \name{felt_get_map}
 \alias{felt_get_map}
 \alias{felt_get_map_layers}
-\alias{felt_get_map_geojson}
-\alias{felt_get_map_sf}
 \title{Get Map Information from Map ID}
 \usage{
 felt_get_map(map_id)
 
 felt_get_map_layers(map_id)
-
-felt_get_map_geojson(map_id, path = tempfile(fileext = ".geojson"))
-
-felt_get_map_sf(map_id, path = tempfile(fileext = ".geojson"))
 }
 \arguments{
 \item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
-
-\item{path}{path to save map to locally as a \code{.geojson} file}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} for the map
@@ -28,8 +20,6 @@ a \link[tibble:tibble]{tibble::tibble} for the map
 \item \code{felt_get_map()} returns identifying information for the map
 \item \code{felt_get_map_layers()} returns information about each layer in the map
 \item \code{felt_get_map_elements()} returns the shapes for each layer in the map
-\item \code{felt_get_map_geojson()} downloads a geojson version of the map and returns the path
-\item \code{felt_get_map_sf} returns a tibble with an \code{sf} column of the map
 }
 }
 \examples{
@@ -40,7 +30,6 @@ felt_get_map_layers('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 # slower, as it has to build the shapes from the API result
 felt_get_map_elements('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 }
-felt_get_map_sf('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 \dontshow{\}) # examplesIf}
 }
 \concept{get}

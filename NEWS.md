@@ -1,3 +1,8 @@
+# feltr 0.0.4
+
+* Removes `felt_get_map_geojson()` and `felt_get_map_sf()`, as Felt removed these capabilities.
+These will be restored in a future version, once the capabilities are available again.
+
 # feltr 0.0.3
 
 * Adds support for the comment export API with `felt_get_comments()`.
