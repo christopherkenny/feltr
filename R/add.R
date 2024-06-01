@@ -33,7 +33,7 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
     purrr::discard(is.null)
 
   req <- httr2::request(base_url = api_url()) |>
-    httr2::req_url_path_append('maps', map_id, 'layers') |>
+    httr2::req_url_path_append('maps', map_id, 'upload') |>
     httr2::req_auth_bearer_token(token = get_felt_key()) |>
     httr2::req_body_json(body, auto_unbox = TRUE)
 
@@ -87,13 +87,13 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
 felt_add_map_layers_url <- function(map_id, url, name = NULL) {
 
   body <- list(
-    layer_url = url,
+    import_url = url,
     name = name
   ) |>
     purrr::discard(is.null)
 
   req <- httr2::request(base_url = api_url()) |>
-    httr2::req_url_path_append('maps', map_id, 'layers', 'url_import') |>
+    httr2::req_url_path_append('maps', map_id, 'upload') |>
     httr2::req_auth_bearer_token(token = get_felt_key()) |>
     httr2::req_body_json(body, auto_unbox = TRUE)
 
@@ -109,4 +109,47 @@ felt_add_map_layers_url <- function(map_id, url, name = NULL) {
     type = out$data$type,
     relationships = list(out$data$relationships$datasets$data)
   )
+}
+
+#' Add Elements to Existing Map
+#'
+#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
+#' @param elements a [sf::sf] object or a path to a geojson file
+#'
+#' @return a [tibble::tibble] with the elements added
+#' @export
+#'
+#' @concept edits
+#'
+#' @examplesIf has_felt_key()
+#' elem <- felt_add_map_elements(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
+#'                     elements = fs::path_package('feltr',  'bbox.geojson'))
+#' elem
+#' # and delete layer
+#' felt_delete_map_elements(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA', element_id = elem$felt_id)
+felt_add_map_elements <- function(map_id, elements) {
+
+  if (fs::is_file(elements)) {
+    elements <- sf::read_sf(elements)
+  }
+  tf <- tempfile(fileext = '.geojson')
+  sf::st_write(elements |> sf::st_transform(4326), tf, quiet = TRUE)
+  elements <- jsonlite::read_json(tf)
+
+  body <- list(
+    features = elements$features,
+    type = 'FeatureCollection'
+  )
+
+  req <- httr2::request(base_url = api_url()) |>
+    httr2::req_url_path_append('maps', map_id, 'elements') |>
+    httr2::req_auth_bearer_token(token = get_felt_key()) |>
+    httr2::req_body_json(body, auto_unbox = TRUE)
+
+  l <- req |>
+    httr2::req_perform() |>
+    httr2::resp_body_json()
+
+  l |>
+    proc_elements()
 }

@@ -39,7 +39,8 @@ felt_get_map_layers <- function(map_id) {
   req |>
     httr2::req_perform() |>
     httr2::resp_body_json() |>
-    proc_map_layer()
+    list_hoist() |>
+    clean_names()
 }
 
 # #' @rdname felt_get_map

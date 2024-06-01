@@ -46,3 +46,30 @@ felt_delete_map <- function(map_id) {
     httr2::req_perform() |>
     httr2::resp_status()
 }
+
+
+
+#' Delete an existing element
+#'
+#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
+#' @param element_id element identifier, as returned by `felt_get_map_elements()` or `felt_add_map_elements()`
+#'
+#' @return response code
+#' @export
+#'
+#' @examples
+#' elem <- felt_add_map_elements(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
+#'                     elements = fs::path_package('feltr',  'bbox.geojson'))
+#' elem
+#' # and delete layer
+#' felt_delete_map_elements(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA', element_id = elem$felt_id)
+felt_delete_map_elements <- function(map_id, element_id) {
+  req <- httr2::request(base_url = api_url()) |>
+    httr2::req_url_path_append('maps', map_id, 'elements', element_id) |>
+    httr2::req_auth_bearer_token(token = get_felt_key()) |>
+    httr2::req_method(method = 'DELETE')
+
+  req |>
+    httr2::req_perform() |>
+    httr2::resp_status()
+}

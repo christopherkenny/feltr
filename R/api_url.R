@@ -1,3 +1,3 @@
 api_url <- function() {
-  'https://felt.com/api/v1'
+  'https://felt.com/api/v2'
 }

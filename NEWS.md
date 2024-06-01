@@ -1,3 +1,8 @@
+# feltr 0.0.5
+
+* Updates to `v2` of the API, now documented at <https://developers.felt.com/api-reference/maps>.
+* Adds a function `felt_update_details()` to update the title, description, or privacy of a map.
+
 # feltr 0.0.4
 
 * Removes `felt_get_map_geojson()` and `felt_get_map_sf()`, as Felt removed these capabilities.

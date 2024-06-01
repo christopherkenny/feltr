@@ -19,7 +19,8 @@ felt_get_style <- function(map_id, layer_id) {
 
   req |>
     httr2::req_perform() |>
-    httr2::resp_body_json() |> purrr::pluck('data') |>
+    httr2::resp_body_json() |>
+    purrr::pluck('data') |>
     jsonlite::fromJSON()
 }
 
