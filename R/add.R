@@ -46,7 +46,6 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
     httr2::req_perform() |>
     httr2::resp_body_json()
 
-
   args <- upload_info |>
     purrr::pluck('presigned_attributes')
   upload <- upload_info |>
@@ -82,7 +81,7 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
 #' layer <- felt_add_map_layers_url(
 #'     map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
 #'     url = url,
-#'     name = 'Parks')
+#'     name = 'URL Parks')
 #' layer
 #' # and delete the new layer
 #' felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',  layer_id = layer$id)
