@@ -10,13 +10,16 @@ felt_create_map(
   layer_urls = NULL,
   lat = NULL,
   lon = NULL,
-  zoom = NULL
+  zoom = NULL,
+  description = NULL,
+  public_access = NULL
 )
 }
 \arguments{
 \item{title}{Title to use for the map. Defaults to \code{NULL}.}
 
-\item{basemap}{Basemap for the new map. Defaults to \code{NULL}. Can be a URL or color hex code}
+\item{basemap}{Basemap for the new map. Defaults to \code{NULL}. Can be a URL or color hex code.
+Text options include \code{'default'} (same as \code{NULL}), \code{'light'}, \code{'dark'}, or \code{'satellite'}.}
 
 \item{layer_urls}{vector of URLs to generate layers in map. Defaults to \code{NULL}.}
 
@@ -24,7 +27,12 @@ felt_create_map(
 
 \item{lon}{longitude to center the map. Defaults to \code{NULL}}
 
-\item{zoom}{zoom level to initialize the map with.}
+\item{zoom}{zoom level to initialize the map with. Defaults to \code{NULL}.}
+
+\item{description}{Description for the map legend. Defaults to \code{NULL}.}
+
+\item{public_access}{Degree of public acess. Defaults to \code{NULL}, which is \code{view_only}.
+Text options also include \code{'private'}, \code{'view_and_comment'}, and \code{'view_comment_and_edit'}.}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} for the new map

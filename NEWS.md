@@ -2,6 +2,7 @@
 
 * Updates to `v2` of the API, now documented at <https://developers.felt.com/api-reference/maps>.
 * Adds a function `felt_update_details()` to update the title, description, or privacy of a map.
+* Removes the `felt_finish_upload()` function, as it is no longer needed.
 
 # feltr 0.0.4
 

@@ -1,12 +1,13 @@
 #' Add Layers to Existing Map
 #'
 #' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
-#' @param file_names Files to include
-#' @param name Name of the layer
-#' @param fill_color Color to fill shape with, typically a hexcode. Defaults to `NULL`.v
-#' @param stroke_color Color to outline shape with, typically a hexcode. Defaults to `NULL`.
+#' @param file_names Files to include. Required.
+#' @param name Name of the layer. Required.
+#' @param lat For images, the latitude of the center of the image. Optional.
+#' @param lng For images, the longitude of the center of the image. Optional.
+#' @param zoom For images, the zoom level of the image. Optional.
 #'
-#' @return a string with the id for the created layer
+#' @return status of the upload
 #' @export
 #'
 #' @concept edits
@@ -19,16 +20,20 @@
 #' # and delete layer
 #' felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA', layer_id = layer)
 felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
-                                fill_color = NULL, stroke_color = NULL) {
-  # don't support webhooks for now
-  webhook_url = NULL
+                                lat = NULL, lng = NULL, zoom = NULL) {
+
+  if (is.null(name)) {
+    cli::cli_abort('{.arg name} is required.')
+  }
+  if (is.null(file_names)) {
+    cli::cli_abort('{.arg file_names} is required.')
+  }
 
   body <- list(
-    file_names = list(fs::path_file(file_names)),
     name = name,
-    fill_color = fill_color,
-    stroke_color = stroke_color,
-    webhook_url = webhook_url
+    lat = lat,
+    lng = lng,
+    zoom = zoom
   ) |>
     purrr::discard(is.null)
 
@@ -43,18 +48,15 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
 
 
   args <- upload_info |>
-    purrr::pluck('data', 'attributes', 'presigned_attributes')
+    purrr::pluck('presigned_attributes')
   upload <- upload_info |>
-    purrr::pluck('data', 'attributes', 'url') |>
+    purrr::pluck('url') |>
     httr2::request() |>
     req_injected(!!!args, file = curl::form_file(file_names))
 
-  out <- upload |>
-    httr2::req_perform()
-
-  finish_upload <- felt_finish_upload(map_id)
-
-  upload_info$data$attributes$layer_id
+  upload |>
+    httr2::req_perform() |>
+    httr2::resp_status()
 }
 
 #' Add Layers to Existing Map from URL
@@ -63,8 +65,8 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
 #' for detailed examples of potential URLs.
 #'
 #' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
-#' @param url Link to layer to include
-#' @param name Name of the layer
+#' @param url Link to layer to include. Required
+#' @param name Name of the layer. Required.
 #'
 #' @return a [tibble::tibble] for the created layer
 #' @export
@@ -86,6 +88,13 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
 #' felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',  layer_id = layer$id)
 felt_add_map_layers_url <- function(map_id, url, name = NULL) {
 
+  if (is.null(name)) {
+    cli::cli_abort('{.arg name} is required.')
+  }
+  if (missing(url)) {
+    cli::cli_abort('{.arg url} is required.')
+  }
+
   body <- list(
     import_url = url,
     name = name
@@ -101,14 +110,8 @@ felt_add_map_layers_url <- function(map_id, url, name = NULL) {
     httr2::req_perform() |>
     httr2::resp_body_json()
 
-  tibble::tibble(
-    name = out$data$attributes$name,
-    status = out$data$attributes$status,
-    progress = out$data$attributes$progress,
-    id = out$data$id,
-    type = out$data$type,
-    relationships = list(out$data$relationships$datasets$data)
-  )
+  out |>
+    tibble::as_tibble()
 }
 
 #' Add Elements to Existing Map

@@ -50,7 +50,7 @@ felt_get_map_element_groups <- function(map_id) {
     dplyr::mutate(geometry = geoms)
 }
 
-#' @rdname felt_get_map_elements_in_group
+#' @rdname felt_get_map_elements
 #' @export
 felt_get_map_elements_in_group <- function(map_id, group_id) {
   req <- httr2::request(base_url = api_url()) |>

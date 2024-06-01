@@ -9,9 +9,9 @@ felt_add_map_layers_url(map_id, url, name = NULL)
 \arguments{
 \item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
-\item{url}{Link to layer to include}
+\item{url}{Link to layer to include. Required}
 
-\item{name}{Name of the layer}
+\item{name}{Name of the layer. Required.}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} for the created layer

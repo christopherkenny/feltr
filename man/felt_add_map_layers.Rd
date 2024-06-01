@@ -8,23 +8,26 @@ felt_add_map_layers(
   map_id,
   name = NULL,
   file_names = NULL,
-  fill_color = NULL,
-  stroke_color = NULL
+  lat = NULL,
+  lng = NULL,
+  zoom = NULL
 )
 }
 \arguments{
 \item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
-\item{name}{Name of the layer}
+\item{name}{Name of the layer. Required.}
 
-\item{file_names}{Files to include}
+\item{file_names}{Files to include. Required.}
 
-\item{fill_color}{Color to fill shape with, typically a hexcode. Defaults to \code{NULL}.v}
+\item{lat}{For images, the latitude of the center of the image. Optional.}
 
-\item{stroke_color}{Color to outline shape with, typically a hexcode. Defaults to \code{NULL}.}
+\item{lng}{For images, the longitude of the center of the image. Optional.}
+
+\item{zoom}{For images, the zoom level of the image. Optional.}
 }
 \value{
-a string with the id for the created layer
+status of the upload
 }
 \description{
 Add Layers to Existing Map
