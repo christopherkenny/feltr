@@ -1,4 +1,5 @@
-proc_map <- function(l) {
+
+relist <- function(l) {
   l |>
     lapply(function(li) {
       if (length(li) != 1) {
@@ -9,7 +10,12 @@ proc_map <- function(l) {
         li
       }
     }) |>
-    dplyr::as_tibble() |>
+    dplyr::as_tibble()
+}
+
+proc_map <- function(l) {
+  l |>
+    relist() |>
     dplyr::mutate(
       elements = lapply(.data$elements, proc_elements),
       layers = lapply(.data$layers, function(x) x |> list_hoist() |> clean_names())
@@ -18,16 +24,7 @@ proc_map <- function(l) {
 
 proc_map_no_layers <- function(l) {
   l |>
-    lapply(function(li) {
-      if (length(li) != 1) {
-        list(li)
-      } else if (is.null(li) || length(li) == 0) {
-        NULL
-      } else {
-        li
-      }
-    }) |>
-    dplyr::as_tibble() |>
+    relist() |>
     dplyr::mutate(
       elements = lapply(.data$elements, proc_elements)
     )

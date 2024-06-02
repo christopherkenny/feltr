@@ -1,6 +1,6 @@
 Package: feltr
 Title: Access the Felt API
-Version: 0.0.4
+Version: 0.1.0
 Authors@R: 
     person(given = "Christopher T.",
            family = "Kenny",

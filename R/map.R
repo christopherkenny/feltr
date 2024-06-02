@@ -5,8 +5,9 @@
 #' - `felt_get_map_elements()` returns the shapes for each layer in the map
 #'
 #' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
+#' @param clean `r template_var_clean()`
 #'
-#' @return a [tibble::tibble] for the map
+#' @return a [tibble::tibble] for the map, if `clean = TRUE`, otherwise a list
 #' @export
 #'
 #' @concept get
@@ -18,29 +19,61 @@
 #' # slower, as it has to build the shapes from the API result
 #' felt_get_map_elements('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 #' }
-felt_get_map <- function(map_id) {
+felt_get_map <- function(map_id, clean = TRUE) {
   req <- httr2::request(base_url = api_url()) |>
     httr2::req_url_path_append('maps', map_id) |>
     httr2::req_auth_bearer_token(token = get_felt_key())
 
-  req |>
+  out <- req |>
     httr2::req_perform() |>
-    httr2::resp_body_json() |>
+    httr2::resp_body_json()
+
+  if (!clean) {
+    return(out)
+  }
+
+  out |>
     proc_map()
 }
 
 #' @rdname felt_get_map
 #' @export
-felt_get_map_layers <- function(map_id) {
+felt_get_map_layers <- function(map_id, clean = TRUE) {
   req <- httr2::request(base_url = api_url()) |>
     httr2::req_url_path_append('maps', map_id, 'layers') |>
     httr2::req_auth_bearer_token(token = get_felt_key())
 
-  req |>
+  out <- req |>
     httr2::req_perform() |>
-    httr2::resp_body_json() |>
+    httr2::resp_body_json()
+
+  if (!clean) {
+    return(out)
+  }
+
+  out |>
     list_hoist() |>
     clean_names()
+}
+
+
+#' @rdname felt_get_map
+#' @export
+felt_get_map_layer <- function(map_id, layer_id, clean = TRUE) {
+  req <- httr2::request(base_url = api_url()) |>
+    httr2::req_url_path_append('maps', map_id, 'layers', layer_id) |>
+    httr2::req_auth_bearer_token(token = get_felt_key())
+
+  out <- req |>
+    httr2::req_perform() |>
+    httr2::resp_body_json()
+
+  if (!clean) {
+    return(out)
+  }
+
+  out |>
+    relist()
 }
 
 # #' @rdname felt_get_map

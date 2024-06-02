@@ -12,3 +12,8 @@ clean_names <- function(x) {
 }
 
 test_map_id <- 'TBI8sDkmQjuK2GX9CSiHiUA'
+
+lrj <- function() {
+  httr2::last_response() |>
+    httr2::resp_body_json()
+}
