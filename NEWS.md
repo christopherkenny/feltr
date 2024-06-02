@@ -6,6 +6,7 @@
   * Adds a function to download a layer with `felt_get_map_layer()`.
   * Removes the `felt_finish_upload()` function, as it is no longer needed.
   * Removes the `felt_get_style()` function, as it was removed from the API. Instead, use `felt_get_map_layers()` which now includes style information for the layer.
+* Adds a `clean` argument to all functions to control whether a `tibble::tibble` or `list` should be returned. This allows for more flexibility for advanced users, especially when working with custom Felt style language inputs.
 * Adds improvements to working with keys by adding aliases `felt_set_key()`, `felt_get_key()`, and `felt_has_key()`.
 * `get_felt_key()` now returns the key invisibly to avoid printing to the console.
 
