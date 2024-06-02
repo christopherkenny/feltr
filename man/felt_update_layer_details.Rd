@@ -33,7 +33,7 @@ felt_update_layer_details(
 response data
 }
 \description{
-Allows for updates to the title, description, and level of public access.
+Allows for updates to the name, ordering key, and subtitle.
 }
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}

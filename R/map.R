@@ -76,6 +76,36 @@ felt_get_map_layer <- function(map_id, layer_id, clean = TRUE) {
     relist()
 }
 
+#' Get information for a layer group
+#'
+#' @param map_id `r template_var_map_id()`
+#' @param layer_group_id `r template_var_layer_group_id()`
+#' @param clean `r template_var_clean()`
+#'
+#' @return a [tibble::tibble] for the layer group, if `clean = TRUE`, otherwise a list
+#' @export
+#'
+#' @examples
+#' felt_get_map_layer_group('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA', 'rHxyTef7S9CO8W7n1PvBVwC')
+felt_get_map_layer_group <- function(map_id, layer_group_id, clean = TRUE) {
+  req <- httr2::request(base_url = api_url()) |>
+    httr2::req_url_path_append('maps', map_id, 'layer_groups', layer_group_id) |>
+    httr2::req_auth_bearer_token(token = get_felt_key())
+
+  out <- req |>
+    httr2::req_perform() |>
+    httr2::resp_body_json()
+
+  if (!clean) {
+    return(out)
+  }
+
+  out |>
+    relist()
+}
+
+
+
 # #' @rdname felt_get_map
 # #' @export
 # #' @param path path to save map to locally as a `.geojson` file
