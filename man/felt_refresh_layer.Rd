@@ -4,7 +4,7 @@
 \alias{felt_refresh_layer}
 \title{Refresh an existing layer}
 \usage{
-felt_refresh_layer(map_id, layer_id, file_names)
+felt_refresh_layer(map_id, layer_id, file_names, clean = TRUE)
 }
 \arguments{
 \item{map_id}{map identifier from url, from \verb{https://felt.com/map/Map-ID}}
@@ -12,6 +12,8 @@ felt_refresh_layer(map_id, layer_id, file_names)
 \item{layer_id}{layer identifier, as returned by \code{felt_get_map_layers()} or \code{felt_add_map_layers()}}
 
 \item{file_names}{file names to upload if the original layer was created with a file upload}
+
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} with upload information

@@ -6,14 +6,16 @@
 \alias{felt_get_map_elements_in_group}
 \title{Get Map Elements from Map ID}
 \usage{
-felt_get_map_elements(map_id)
+felt_get_map_elements(map_id, clean = TRUE)
 
-felt_get_map_element_groups(map_id)
+felt_get_map_element_groups(map_id, clean = TRUE)
 
-felt_get_map_elements_in_group(map_id, group_id)
+felt_get_map_elements_in_group(map_id, group_id, clean = TRUE)
 }
 \arguments{
 \item{map_id}{map identifier from url, from \verb{https://felt.com/map/Map-ID}}
+
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 
 \item{group_id}{group identifier, as returned by \code{felt_get_map_element_groups()}}
 }

@@ -10,6 +10,7 @@
 #' @param description Description for the map legend. Defaults to `NULL`.
 #' @param public_access Degree of public acess. Defaults to `NULL`, which is `view_only`.
 #' Text options also include `'private'`, `'view_and_comment'`, and `'view_comment_and_edit'`.
+#' @param clean `r template_var_clean()`
 #'
 #' @return a [tibble::tibble] for the new map
 #' @export
@@ -23,7 +24,7 @@
 #' felt_delete_map(map_id = map$id)
 felt_create_map <- function(title = NULL, basemap = NULL, layer_urls = NULL,
                             lat = NULL, lon = NULL, zoom = NULL, description = NULL,
-                            public_access = NULL) {
+                            public_access = NULL, clean = TRUE) {
   if (!is.null(layer_urls)) layer_urls <- as.list(layer_urls)
 
   body <- list(
@@ -43,8 +44,14 @@ felt_create_map <- function(title = NULL, basemap = NULL, layer_urls = NULL,
     httr2::req_auth_bearer_token(token = get_felt_key()) |>
     httr2::req_body_json(body, auto_unbox = TRUE)
 
-  req |>
+  out <- req |>
     httr2::req_perform() |>
-    httr2::resp_body_json() |>
+    httr2::resp_body_json()
+
+  if (!clean) {
+    return(out)
+  }
+
+  out |>
     proc_map()
 }

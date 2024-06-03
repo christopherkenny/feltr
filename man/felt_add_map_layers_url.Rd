@@ -4,7 +4,7 @@
 \alias{felt_add_map_layers_url}
 \title{Add Layers to Existing Map from URL}
 \usage{
-felt_add_map_layers_url(map_id, url, name = NULL)
+felt_add_map_layers_url(map_id, url, name = NULL, clean = TRUE)
 }
 \arguments{
 \item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
@@ -12,6 +12,8 @@ felt_add_map_layers_url(map_id, url, name = NULL)
 \item{url}{Link to layer to include. Required}
 
 \item{name}{Name of the layer. Required.}
+
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} for the created layer

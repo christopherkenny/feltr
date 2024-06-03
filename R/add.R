@@ -6,6 +6,7 @@
 #' @param lat For images, the latitude of the center of the image. Optional.
 #' @param lng For images, the longitude of the center of the image. Optional.
 #' @param zoom For images, the zoom level of the image. Optional.
+#' @param clean `r template_var_clean()`
 #'
 #' @return status of the upload
 #' @export
@@ -20,7 +21,7 @@
 #' # and delete layer
 #' felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA', layer_id = layer)
 felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
-                                lat = NULL, lng = NULL, zoom = NULL) {
+                                lat = NULL, lng = NULL, zoom = NULL, clean = TRUE) {
 
   if (is.null(name)) {
     cli::cli_abort('{.arg name} is required.')
@@ -53,8 +54,14 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
     httr2::request() |>
     req_injected(!!!args, file = curl::form_file(file_names))
 
-  upload |>
-    httr2::req_perform() |>
+  out <- upload |>
+    httr2::req_perform()
+
+  if (!clean) {
+    return(out)
+  }
+
+  out |>
     httr2::resp_status()
 }
 
@@ -66,6 +73,7 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
 #' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
 #' @param url Link to layer to include. Required
 #' @param name Name of the layer. Required.
+#' @param clean `r template_var_clean()`
 #'
 #' @return a [tibble::tibble] for the created layer
 #' @export
@@ -85,7 +93,7 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
 #' layer
 #' # and delete the new layer
 #' felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',  layer_id = layer$id)
-felt_add_map_layers_url <- function(map_id, url, name = NULL) {
+felt_add_map_layers_url <- function(map_id, url, name = NULL, clean = TRUE) {
 
   if (is.null(name)) {
     cli::cli_abort('{.arg name} is required.')
@@ -109,6 +117,10 @@ felt_add_map_layers_url <- function(map_id, url, name = NULL) {
     httr2::req_perform() |>
     httr2::resp_body_json()
 
+  if (!clean) {
+    return(out)
+  }
+
   out |>
     tibble::as_tibble()
 }
@@ -117,6 +129,7 @@ felt_add_map_layers_url <- function(map_id, url, name = NULL) {
 #'
 #' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
 #' @param elements a [sf::sf] object or a path to a geojson file
+#' @param clean `r template_var_clean()`
 #'
 #' @return a [tibble::tibble] with the elements added
 #' @export
@@ -129,7 +142,7 @@ felt_add_map_layers_url <- function(map_id, url, name = NULL) {
 #' elem
 #' # and delete layer
 #' felt_delete_map_elements(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA', element_id = elem$felt_id)
-felt_add_map_elements <- function(map_id, elements) {
+felt_add_map_elements <- function(map_id, elements, clean = TRUE) {
 
   if (fs::is_file(elements)) {
     elements <- sf::read_sf(elements)
@@ -151,6 +164,10 @@ felt_add_map_elements <- function(map_id, elements) {
   l <- req |>
     httr2::req_perform() |>
     httr2::resp_body_json()
+
+  if (!clean) {
+    return(l)
+  }
 
   l |>
     proc_elements()

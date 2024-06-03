@@ -3,6 +3,7 @@
 #' @param map_id map identifier from url, from `https://felt.com/map/Map-ID`
 #' @param layer_id layer identifier, as returned by `felt_get_map_layers()` or `felt_add_map_layers()`
 #' @param file_names file names to upload if the original layer was created with a file upload
+#' @param clean `r template_var_clean()`
 #'
 #' @return a [tibble::tibble] with upload information
 #' @export
@@ -13,7 +14,7 @@
 #'                   file_names = fs::path_package('feltr',  'towns.geojson'))
 #' felt_refresh_layer(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
 #'                   layer_id = 'eufG5hWKRRSURHE8YcGGXA')
-felt_refresh_layer <- function(map_id, layer_id, file_names) {
+felt_refresh_layer <- function(map_id, layer_id, file_names, clean = TRUE) {
 
   req <- httr2::request(base_url = api_url()) |>
     httr2::req_url_path_append('maps', map_id, 'layers', layer_id, 'refresh') |>
@@ -37,12 +38,21 @@ felt_refresh_layer <- function(map_id, layer_id, file_names) {
       httr2::request() |>
       req_injected(!!!args, file = curl::form_file(file_names))
 
-    upload |>
-      httr2::req_perform() |>
+    out <- upload |>
+      httr2::req_perform()
+
+    if (!clean) {
+      return(out)
+    }
+
+    out |>
       httr2::resp_status()
-
-
   } else {
+
+    if (!clean) {
+      return(upload_info)
+    }
+
     upload_info |>
       tibble::as_tibble()
   }

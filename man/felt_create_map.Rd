@@ -12,7 +12,8 @@ felt_create_map(
   lon = NULL,
   zoom = NULL,
   description = NULL,
-  public_access = NULL
+  public_access = NULL,
+  clean = TRUE
 )
 }
 \arguments{
@@ -33,6 +34,8 @@ Text options include \code{'default'} (same as \code{NULL}), \code{'light'}, \co
 
 \item{public_access}{Degree of public acess. Defaults to \code{NULL}, which is \code{view_only}.
 Text options also include \code{'private'}, \code{'view_and_comment'}, and \code{'view_comment_and_edit'}.}
+
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} for the new map

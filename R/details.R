@@ -7,6 +7,7 @@
 #' @param description Description for the map legend. Defaults to `NULL`.
 #' @param public_access Degree of public acess. Defaults to `NULL`, which is `view_only`.
 #' Text options also include `'private'`, `'view_and_comment'`, and `'view_comment_and_edit'`.
+#' @param clean `r template_var_clean()`
 #'
 #' @concept get
 #'
@@ -14,8 +15,10 @@
 #' @export
 #'
 #' @examplesIf has_felt_key()
-#' felt_update_map_details(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA', title = paste0('Rockland 2024 Districts, tested ', Sys.Date()))
-felt_update_map_details <- function(map_id, title = NULL, description = NULL, public_access = NULL) {
+#' felt_update_map_details(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',
+#'                         title = paste0('Rockland 2024 Districts, tested ', Sys.Date()))
+felt_update_map_details <- function(map_id, title = NULL, description = NULL,
+                                    public_access = NULL, clean = TRUE) {
 
   body <- list(
     title = title,
@@ -30,9 +33,15 @@ felt_update_map_details <- function(map_id, title = NULL, description = NULL, pu
     httr2::req_body_json(data = body) |> # maybe not auto unbox?
     httr2::req_method(method = 'POST')
 
-  req |>
+  out <- req |>
     httr2::req_perform() |>
-    httr2::resp_body_json() |>
+    httr2::resp_body_json()
+
+  if (!clean) {
+    return(out)
+  }
+
+  out |>
     proc_map()
 }
 

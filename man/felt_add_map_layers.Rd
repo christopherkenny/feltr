@@ -10,7 +10,8 @@ felt_add_map_layers(
   file_names = NULL,
   lat = NULL,
   lng = NULL,
-  zoom = NULL
+  zoom = NULL,
+  clean = TRUE
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ felt_add_map_layers(
 \item{lng}{For images, the longitude of the center of the image. Optional.}
 
 \item{zoom}{For images, the zoom level of the image. Optional.}
+
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 }
 \value{
 status of the upload

@@ -4,12 +4,14 @@
 \alias{felt_add_map_elements}
 \title{Add Elements to Existing Map}
 \usage{
-felt_add_map_elements(map_id, elements)
+felt_add_map_elements(map_id, elements, clean = TRUE)
 }
 \arguments{
 \item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
 \item{elements}{a \link[sf:sf]{sf::sf} object or a path to a geojson file}
+
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} with the elements added

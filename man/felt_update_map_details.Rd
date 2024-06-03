@@ -8,7 +8,8 @@ felt_update_map_details(
   map_id,
   title = NULL,
   description = NULL,
-  public_access = NULL
+  public_access = NULL,
+  clean = TRUE
 )
 }
 \arguments{
@@ -20,6 +21,8 @@ felt_update_map_details(
 
 \item{public_access}{Degree of public acess. Defaults to \code{NULL}, which is \code{view_only}.
 Text options also include \code{'private'}, \code{'view_and_comment'}, and \code{'view_comment_and_edit'}.}
+
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 }
 \value{
 response data
@@ -29,7 +32,8 @@ Allows for updates to the title, description, and level of public access.
 }
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-felt_update_map_details(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA', title = paste0('Rockland 2024 Districts, tested ', Sys.Date()))
+felt_update_map_details(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',
+                        title = paste0('Rockland 2024 Districts, tested ', Sys.Date()))
 \dontshow{\}) # examplesIf}
 }
 \concept{get}
