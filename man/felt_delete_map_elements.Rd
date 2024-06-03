@@ -7,7 +7,7 @@
 felt_delete_map_elements(map_id, element_id)
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
 \item{element_id}{element identifier, as returned by \code{felt_get_map_elements()} or \code{felt_add_map_elements()}}
 }

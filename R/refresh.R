@@ -1,7 +1,7 @@
 #' Refresh an existing layer
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Map-ID`
-#' @param layer_id layer identifier, as returned by `felt_get_map_layers()` or `felt_add_map_layers()`
+#' @param map_id `r template_var_map_id()`
+#' @param layer_id `r template_var_layer_id()`
 #' @param file_names file names to upload if the original layer was created with a file upload
 #' @param clean `r template_var_clean()`
 #'

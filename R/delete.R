@@ -1,7 +1,7 @@
 #' Delete Layer from an Existing Map
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
-#' @param layer_id layer identifier, as returned by `felt_get_map_layers()` or `felt_add_map_layers()`
+#' @param map_id `r template_var_map_id()`
+#' @param layer_id `r template_var_layer_id()`
 #' @param clean `r template_var_clean()`
 #'
 #' @return response code
@@ -33,7 +33,7 @@ felt_delete_map_layer <- function(map_id, layer_id, clean = TRUE) {
 
 #' Delete an existing map
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
+#' @param map_id `r template_var_map_id()`
 #'
 #' @return response code
 #' @export
@@ -58,7 +58,7 @@ felt_delete_map <- function(map_id) {
 
 #' Delete an existing element
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
+#' @param map_id `r template_var_map_id()`
 #' @param element_id element identifier, as returned by `felt_get_map_elements()` or `felt_add_map_elements()`
 #'
 #' @return response code

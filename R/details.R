@@ -2,7 +2,7 @@
 #'
 #' Allows for updates to the title, description, and level of public access.
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
+#' @param map_id `r template_var_map_id()`
 #' @param title Title to use for the map. Defaults to `NULL`.
 #' @param description Description for the map legend. Defaults to `NULL`.
 #' @param public_access Degree of public acess. Defaults to `NULL`, which is `view_only`.
@@ -49,9 +49,9 @@ felt_update_map_details <- function(map_id, title = NULL, description = NULL,
 #'
 #' Allows for updates to the name, ordering key, and subtitle.
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
-#' @param layer_id ID for a layer. Defaults to `NULL`.
-#' @param layer_group_id ID for a layer group. Defaults to `NULL`.
+#' @param map_id `r template_var_map_id()`
+#' @param layer_id `r template_var_layer_id()`
+#' @param layer_group_id `r template_var_layer_group_id()`
 #' @param name Name of the layer. Defaults to `NULL`.
 #' @param ordering_key Integer to order layers. Defaults to `NULL`.
 #' @param subtitle Subtitle for the layer. Defaults to `NULL`.

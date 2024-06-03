@@ -4,7 +4,7 @@
 #' - `felt_get_map_layers()` returns information about each layer in the map
 #' - `felt_get_map_elements()` returns the shapes for each layer in the map
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
+#' @param map_id `r template_var_map_id()`
 #' @param clean `r template_var_clean()`
 #'
 #' @return a [tibble::tibble] for the map, if `clean = TRUE`, otherwise a list

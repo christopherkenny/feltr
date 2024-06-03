@@ -1,6 +1,6 @@
 #' Get Map Elements from Map ID
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Map-ID`
+#' @param map_id `r template_var_map_id()`
 #' @param group_id group identifier, as returned by `felt_get_map_element_groups()`
 #' @param clean `r template_var_clean()`
 #'

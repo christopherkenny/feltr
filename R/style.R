@@ -2,8 +2,8 @@
 #'
 #' For details on the Felt Style Language, see <https://felt.com/blog/felt-style-language>.
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
-#' @param layer_id layer identifier, as returned by `felt_get_map_layers()` or `felt_add_map_layers()`
+#' @param map_id `r template_var_map_id()`
+#' @param layer_id `r template_var_layer_id()`
 #' @param fsl A list indicating the Felt style language to update the layer to. It must be valid FSL.
 #' @param clean `r template_var_clean()`
 #'

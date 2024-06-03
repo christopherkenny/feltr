@@ -7,9 +7,9 @@
 felt_delete_map_layer(map_id, layer_id, clean = TRUE)
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
-\item{layer_id}{layer identifier, as returned by \code{felt_get_map_layers()} or \code{felt_add_map_layers()}}
+\item{layer_id}{character, layer identifier from url, from \code{felt_get_map()}}
 
 \item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 }

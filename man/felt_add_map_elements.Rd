@@ -7,7 +7,7 @@
 felt_add_map_elements(map_id, elements, clean = TRUE)
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
 \item{elements}{a \link[sf:sf]{sf::sf} object or a path to a geojson file}
 

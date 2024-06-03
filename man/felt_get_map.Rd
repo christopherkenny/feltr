@@ -13,7 +13,7 @@ felt_get_map_layers(map_id, clean = TRUE)
 felt_get_map_layer(map_id, layer_id, clean = TRUE)
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
 \item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 }

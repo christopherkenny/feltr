@@ -1,6 +1,6 @@
 #' Add Layers to Existing Map
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
+#' @param map_id `r template_var_map_id()`
 #' @param file_names Files to include. Required.
 #' @param name Name of the layer. Required.
 #' @param lat For images, the latitude of the center of the image. Optional.
@@ -70,7 +70,7 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
 #' See [Felt "Upload Anything" documentation](https://feltmaps.notion.site/b26d739e80184127872faa923b55d232?pvs=25#3e37f06bc38c4971b435fbff2f4da6cb)
 #' for detailed examples of potential URLs.
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
+#' @param map_id `r template_var_map_id()`
 #' @param url Link to layer to include. Required
 #' @param name Name of the layer. Required.
 #' @param clean `r template_var_clean()`
@@ -127,7 +127,7 @@ felt_add_map_layers_url <- function(map_id, url, name = NULL, clean = TRUE) {
 
 #' Add Elements to Existing Map
 #'
-#' @param map_id map identifier from url, from `https://felt.com/map/Readable-Name-map_id`
+#' @param map_id `r template_var_map_id()`
 #' @param elements a [sf::sf] object or a path to a geojson file
 #' @param clean `r template_var_clean()`
 #'

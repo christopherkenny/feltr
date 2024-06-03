@@ -15,11 +15,11 @@ felt_update_layer_details(
 )
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
-\item{layer_id}{ID for a layer. Defaults to \code{NULL}.}
+\item{layer_id}{character, layer identifier from url, from \code{felt_get_map()}}
 
-\item{layer_group_id}{ID for a layer group. Defaults to \code{NULL}.}
+\item{layer_group_id}{character, layer group identifier from url, from \code{felt_get_map()}.}
 
 \item{name}{Name of the layer. Defaults to \code{NULL}.}
 

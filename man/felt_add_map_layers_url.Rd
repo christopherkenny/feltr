@@ -7,7 +7,7 @@
 felt_add_map_layers_url(map_id, url, name = NULL, clean = TRUE)
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
 \item{url}{Link to layer to include. Required}
 

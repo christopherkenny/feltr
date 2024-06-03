@@ -13,7 +13,7 @@ felt_get_map_element_groups(map_id, clean = TRUE)
 felt_get_map_elements_in_group(map_id, group_id, clean = TRUE)
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Map-ID}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
 \item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 

@@ -13,7 +13,7 @@ felt_update_map_details(
 )
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
 \item{title}{Title to use for the map. Defaults to \code{NULL}.}
 
