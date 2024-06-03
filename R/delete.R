@@ -64,7 +64,7 @@ felt_delete_map <- function(map_id) {
 #' @return response code
 #' @export
 #'
-#' @examples
+#' @examplesIf has_felt_key()
 #' elem <- felt_add_map_elements(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
 #'                     elements = fs::path_package('feltr',  'bbox.geojson'))
 #' elem

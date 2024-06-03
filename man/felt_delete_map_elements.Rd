@@ -18,9 +18,11 @@ response code
 Delete an existing element
 }
 \examples{
+\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 elem <- felt_add_map_elements(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
                     elements = fs::path_package('feltr',  'bbox.geojson'))
 elem
 # and delete layer
 felt_delete_map_elements(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA', element_id = elem$felt_id)
+\dontshow{\}) # examplesIf}
 }
