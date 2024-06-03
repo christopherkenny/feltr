@@ -40,7 +40,7 @@ felt_get_library <- function(source = 'workspace', clean = TRUE) {
 #' @return a [tibble::tibble] if `clean = TRUE`, otherwise a list
 #' @export
 #'
-#' @examples
+#' @examplesIf has_felt_key()
 #' felt_add_library_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',
 #'                       layer_id = '4Lc7RaEyRP2LfARGmR6e4C',
 #'                       name = paste0('Test layer ', Sys.time()))

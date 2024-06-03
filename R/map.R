@@ -86,7 +86,7 @@ felt_get_map_layer <- function(map_id, layer_id, clean = TRUE) {
 #' @return a [tibble::tibble] for the layer group, if `clean = TRUE`, otherwise a list
 #' @export
 #'
-#' @examples
+#' @examplesIf has_felt_key()
 #' felt_get_map_layer_group(
 #'   map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
 #'   layer_group_id = 'rHxyTef7S9CO8W7n1PvBVwC'
