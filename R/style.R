@@ -31,7 +31,7 @@ felt_patch_style <- function(map_id, layer_id, fsl, clean = TRUE) {
     httr2::req_auth_bearer_token(token = get_felt_key()) |>
     httr2::req_body_json(data = list(style = fsl), auto_unbox = TRUE)
 
-  req |>
+  out <- req |>
     httr2::req_perform() |>
     httr2::resp_body_json()
 

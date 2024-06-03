@@ -16,6 +16,8 @@ felt_get_map_layer(map_id, layer_id, clean = TRUE)
 \item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
 \item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
+
+\item{layer_id}{character, layer identifier from url, from \code{felt_get_map()}}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} for the map, if \code{clean = TRUE}, otherwise a list

@@ -5,6 +5,7 @@
 #' - `felt_get_map_elements()` returns the shapes for each layer in the map
 #'
 #' @param map_id `r template_var_map_id()`
+#' @param layer_id `r template_var_layer_id()`
 #' @param clean `r template_var_clean()`
 #'
 #' @return a [tibble::tibble] for the map, if `clean = TRUE`, otherwise a list
@@ -86,7 +87,10 @@ felt_get_map_layer <- function(map_id, layer_id, clean = TRUE) {
 #' @export
 #'
 #' @examples
-#' felt_get_map_layer_group('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA', 'rHxyTef7S9CO8W7n1PvBVwC')
+#' felt_get_map_layer_group(
+#'   map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
+#'   layer_group_id = 'rHxyTef7S9CO8W7n1PvBVwC'
+#' )
 felt_get_map_layer_group <- function(map_id, layer_group_id, clean = TRUE) {
   req <- httr2::request(base_url = api_url()) |>
     httr2::req_url_path_append('maps', map_id, 'layer_groups', layer_group_id) |>

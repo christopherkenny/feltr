@@ -20,5 +20,8 @@ a \link[tibble:tibble]{tibble::tibble} for the layer group, if \code{clean = TRU
 Get information for a layer group
 }
 \examples{
-felt_get_map_layer_group('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA', 'rHxyTef7S9CO8W7n1PvBVwC')
+felt_get_map_layer_group(
+  map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
+  layer_group_id = 'rHxyTef7S9CO8W7n1PvBVwC'
+)
 }
