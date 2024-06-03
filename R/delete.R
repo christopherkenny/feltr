@@ -10,10 +10,18 @@
 #' @concept edits
 #'
 #' @examplesIf has_felt_key()
-#' layer <- felt_add_map_layers('TBI8sDkmQjuK2GX9CSiHiUA',
-#'           'test', fs::path_package('feltr', 'towns.geojson'))
-#' felt_delete_map_layer(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
-#'          layer)
+#' # split the URL for length reasons
+#' url <- paste0(
+#' 'https://www.rocklandgis.com/portal/sharing/rest/',
+#' 'content/items/73fc78cb0fb04580b4788937fe5ee697/data'
+#' )
+#' layer <- felt_add_map_layers_url(
+#'     map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
+#'     url = url,
+#'     name = 'URL Parks test')
+#' layer
+#' # and delete the new layer
+#' felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',  layer_id = layer$layer_id)
 felt_delete_map_layer <- function(map_id, layer_id, clean = TRUE) {
   req <- httr2::request(base_url = api_url()) |>
     httr2::req_url_path_append('maps', map_id, 'layers', layer_id) |>

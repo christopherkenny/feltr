@@ -16,10 +16,8 @@
 #' @examplesIf has_felt_key()
 #' layer <- felt_add_map_layers(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
 #'                     file_names = fs::path_package('feltr',  'towns.geojson'),
-#'                     name = 'Towns')
+#'                     name = 'Towns  test')
 #' layer
-#' # and delete layer
-#' felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA', layer_id = layer)
 felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
                                 lat = NULL, lng = NULL, zoom = NULL, clean = TRUE) {
 
@@ -61,8 +59,7 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
     return(out)
   }
 
-  out |>
-    httr2::resp_status()
+  out
 }
 
 #' Add Layers to Existing Map from URL
@@ -89,10 +86,10 @@ felt_add_map_layers <- function(map_id, name = NULL, file_names = NULL,
 #' layer <- felt_add_map_layers_url(
 #'     map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
 #'     url = url,
-#'     name = 'URL Parks')
+#'     name = 'URL Parks test')
 #' layer
 #' # and delete the new layer
-#' felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',  layer_id = layer$id)
+#' felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',  layer_id = layer$layer_id)
 felt_add_map_layers_url <- function(map_id, url, name = NULL, clean = TRUE) {
 
   if (is.null(name)) {

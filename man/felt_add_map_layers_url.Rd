@@ -32,10 +32,10 @@ url <- paste0(
 layer <- felt_add_map_layers_url(
     map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
     url = url,
-    name = 'URL Parks')
+    name = 'URL Parks test')
 layer
 # and delete the new layer
-felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',  layer_id = layer$id)
+felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',  layer_id = layer$layer_id)
 \dontshow{\}) # examplesIf}
 }
 \concept{edits}
