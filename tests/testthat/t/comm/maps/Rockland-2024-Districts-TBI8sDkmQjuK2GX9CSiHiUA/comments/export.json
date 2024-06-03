@@ -1,0 +1,43 @@
+[
+    {
+        "id": "VB6xaqpNRyOzfC4cokFAAD",
+        "location": [
+            41.139885544601356,
+            -73.93678198666656
+        ],
+        "comments": [
+            {
+                "id": "VB6xaqpNRyOzfC4cokFAAD",
+                "text": "Test comment 2",
+                "authorEmail": "",
+                "authorName": "Christopher Kenny",
+                "createdAt": "2023-07-11T20:30:08"
+            },
+            {
+                "id": "ld4aW5ArSyOjDDA3XxUcyD",
+                "text": "Test response to comment 2",
+                "authorEmail": "",
+                "authorName": "Christopher Kenny",
+                "createdAt": "2023-07-14T18:58:38"
+            }
+        ],
+        "isResolved": false
+    },
+    {
+        "id": "Eeyl4j2nRAOrNiaFDYgCSB",
+        "location": [
+            41.093933640970235,
+            -73.91779672880227
+        ],
+        "comments": [
+            {
+                "id": "Eeyl4j2nRAOrNiaFDYgCSB",
+                "text": "Test comment",
+                "authorEmail": "",
+                "authorName": "Christopher Kenny",
+                "createdAt": "2023-07-11T20:23:20"
+            }
+        ],
+        "isResolved": false
+    }
+]
