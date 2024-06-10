@@ -21,7 +21,7 @@ get_felt_key <- function() {
   # if (key == '') {
   #   cli::cli_abort('Must set a key as {.val FELT_KEY}.')
   # }
-  key
+  invisible(key)
 }
 
 #' Add Entry to Renviron
@@ -96,3 +96,16 @@ set_felt_key <- function(key, overwrite = FALSE, install = FALSE,
 
   invisible(key)
 }
+
+#' @rdname key
+#' @export
+felt_get_key <- get_felt_key
+
+
+#' @rdname set_felt_key
+#' @export
+felt_set_key <- set_felt_key
+
+#' @rdname key
+#' @export
+felt_has_key <- has_felt_key

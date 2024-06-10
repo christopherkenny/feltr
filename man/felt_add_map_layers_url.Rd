@@ -4,14 +4,16 @@
 \alias{felt_add_map_layers_url}
 \title{Add Layers to Existing Map from URL}
 \usage{
-felt_add_map_layers_url(map_id, url, name = NULL)
+felt_add_map_layers_url(map_id, url, name = NULL, clean = TRUE)
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
-\item{url}{Link to layer to include}
+\item{url}{Link to layer to include. Required}
 
-\item{name}{Name of the layer}
+\item{name}{Name of the layer. Required.}
+
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} for the created layer
@@ -30,10 +32,10 @@ url <- paste0(
 layer <- felt_add_map_layers_url(
     map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
     url = url,
-    name = 'Parks')
+    name = 'URL Parks test')
 layer
 # and delete the new layer
-felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',  layer_id = layer$id)
+felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',  layer_id = layer$layer_id)
 \dontshow{\}) # examplesIf}
 }
 \concept{edits}

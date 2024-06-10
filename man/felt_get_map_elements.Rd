@@ -2,12 +2,22 @@
 % Please edit documentation in R/map_elements.R
 \name{felt_get_map_elements}
 \alias{felt_get_map_elements}
+\alias{felt_get_map_element_groups}
+\alias{felt_get_map_elements_in_group}
 \title{Get Map Elements from Map ID}
 \usage{
-felt_get_map_elements(map_id)
+felt_get_map_elements(map_id, clean = TRUE)
+
+felt_get_map_element_groups(map_id, clean = TRUE)
+
+felt_get_map_elements_in_group(map_id, group_id, clean = TRUE)
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Map-ID}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
+
+\item{group_id}{group identifier, as returned by \code{felt_get_map_element_groups()}}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} for the map
@@ -18,6 +28,8 @@ Get Map Elements from Map ID
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 felt_get_map_elements(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
+felt_get_map_element_groups('TBI8sDkmQjuK2GX9CSiHiUA')
+felt_get_map_elements_in_group('TBI8sDkmQjuK2GX9CSiHiUA', '3Wl5s2AqRmiYgO9CrBFxO3D')
 \dontshow{\}) # examplesIf}
 }
 \concept{get}

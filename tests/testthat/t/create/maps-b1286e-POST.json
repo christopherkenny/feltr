@@ -1,0 +1,29 @@
+{
+    "id": "jYy62BFPSM6SqxQJxuWi5A",
+    "links": {
+        "self": "https://maps/jYy62BFPSM6SqxQJxuWi5A"
+    },
+    "type": "map",
+    "title": "r package test",
+    "url": "https://felt.com/map/r-package-test-jYy62BFPSM6SqxQJxuWi5A",
+    "created_at": "2024-06-03T01:07:30",
+    "elements": {
+        "type": "FeatureCollection",
+        "features": [
+
+        ]
+    },
+    "layers": [
+
+    ],
+    "project_id": "zG7L9BXceShKtbdkc75MFjA",
+    "layer_groups": [
+
+    ],
+    "thumbnail_url": null,
+    "visited_at": null,
+    "public_access": "view_only",
+    "element_groups": [
+
+    ]
+}

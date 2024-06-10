@@ -3,17 +3,24 @@
 \name{felt_get_map}
 \alias{felt_get_map}
 \alias{felt_get_map_layers}
+\alias{felt_get_map_layer}
 \title{Get Map Information from Map ID}
 \usage{
-felt_get_map(map_id)
+felt_get_map(map_id, clean = TRUE)
 
-felt_get_map_layers(map_id)
+felt_get_map_layers(map_id, clean = TRUE)
+
+felt_get_map_layer(map_id, layer_id, clean = TRUE)
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
+
+\item{layer_id}{character, layer identifier from url, from \code{felt_get_map()}}
 }
 \value{
-a \link[tibble:tibble]{tibble::tibble} for the map
+a \link[tibble:tibble]{tibble::tibble} for the map, if \code{clean = TRUE}, otherwise a list
 }
 \description{
 \itemize{

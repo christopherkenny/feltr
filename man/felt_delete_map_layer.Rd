@@ -4,12 +4,14 @@
 \alias{felt_delete_map_layer}
 \title{Delete Layer from an Existing Map}
 \usage{
-felt_delete_map_layer(map_id, layer_id)
+felt_delete_map_layer(map_id, layer_id, clean = TRUE)
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
-\item{layer_id}{layer identifier, as returned by \code{felt_get_map_layers()} or \code{felt_add_map_layers()}}
+\item{layer_id}{character, layer identifier from url, from \code{felt_get_map()}}
+
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 }
 \value{
 response code
@@ -19,10 +21,18 @@ Delete Layer from an Existing Map
 }
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-layer <- felt_add_map_layers('TBI8sDkmQjuK2GX9CSiHiUA',
-          'test', fs::path_package('feltr', 'towns.geojson'))
-felt_delete_map_layer(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
-         layer)
+# split the URL for length reasons
+url <- paste0(
+'https://www.rocklandgis.com/portal/sharing/rest/',
+'content/items/73fc78cb0fb04580b4788937fe5ee697/data'
+)
+layer <- felt_add_map_layers_url(
+    map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
+    url = url,
+    name = 'URL Parks test')
+layer
+# and delete the new layer
+felt_delete_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',  layer_id = layer$layer_id)
 \dontshow{\}) # examplesIf}
 }
 \concept{edits}

@@ -4,14 +4,16 @@
 \alias{felt_patch_style}
 \title{Update Felt Style Information for a Layer}
 \usage{
-felt_patch_style(map_id, layer_id, fsl)
+felt_patch_style(map_id, layer_id, fsl, clean = TRUE)
 }
 \arguments{
-\item{map_id}{map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
+\item{map_id}{character, map identifier from url, from \verb{https://felt.com/map/Readable-Name-map_id}}
 
-\item{layer_id}{layer identifier, as returned by \code{felt_get_map_layers()} or \code{felt_add_map_layers()}}
+\item{layer_id}{character, layer identifier from url, from \code{felt_get_map()}}
 
-\item{fsl}{A list indicating the Felt style language to update the layer to}
+\item{fsl}{A list indicating the Felt style language to update the layer to. It must be valid FSL.}
+
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 }
 \value{
 response data
@@ -21,7 +23,18 @@ For details on the Felt Style Language, see \url{https://felt.com/blog/felt-styl
 }
 \examples{
 \dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
-felt_get_style(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA', layer_id = 'Qno0gfmkTS9BggbesfQooND')
+# URL Parks layer
+# read as a list
+layer <- felt_get_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',
+                            layer_id = 'eufG5hWKRRSURHE8YcGGXA',
+                            clean = FALSE)
+# use the existing style for easiest modification
+style <- layer$style
+style$label$minZoom <- round(runif(1, 0, 23))
+
+felt_patch_style(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
+                 layer_id = 'eufG5hWKRRSURHE8YcGGXA',
+                 fsl = style)
 \dontshow{\}) # examplesIf}
 }
 \concept{style}

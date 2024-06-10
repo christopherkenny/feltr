@@ -4,11 +4,17 @@
 \alias{key}
 \alias{has_felt_key}
 \alias{get_felt_key}
+\alias{felt_get_key}
+\alias{felt_has_key}
 \title{Check or Get Felt API Key}
 \usage{
 has_felt_key()
 
 get_felt_key()
+
+felt_get_key()
+
+felt_has_key()
 }
 \value{
 logical if \code{has}, key if \code{get}

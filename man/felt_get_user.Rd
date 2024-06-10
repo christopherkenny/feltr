@@ -4,7 +4,10 @@
 \alias{felt_get_user}
 \title{Obtain information about the user}
 \usage{
-felt_get_user()
+felt_get_user(clean = TRUE)
+}
+\arguments{
+\item{clean}{logical, whether to turn the API response into a \link[tibble:tibble]{tibble::tibble}}
 }
 \value{
 a \link[tibble:tibble]{tibble::tibble} of information about the user

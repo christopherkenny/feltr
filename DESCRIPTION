@@ -1,6 +1,6 @@
 Package: feltr
 Title: Access the Felt API
-Version: 0.0.4
+Version: 0.1.0
 Authors@R: 
     person(given = "Christopher T.",
            family = "Kenny",
@@ -16,10 +16,11 @@ Description: Upload, download, and edit internet maps with the Felt API
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 Imports: 
     cli,
     curl,
+    dplyr,
     fs,
     geojsonsf,
     httr2,
