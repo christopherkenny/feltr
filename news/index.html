@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">feltr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,6 +45,23 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.1.0" id="feltr-010">feltr 0.1.0<a class="anchor" aria-label="anchor" href="#feltr-010"></a></h2>
+<ul><li>Updates to <code>v2</code> of the API, now documented at <a href="https://developers.felt.com/api-reference/maps" class="external-link uri">https://developers.felt.com/api-reference/maps</a>.
+<ul><li>Adds a function <code><a href="../reference/felt_update_map_details.html">felt_update_map_details()</a></code> to update the title, description, or privacy of a map.</li>
+<li>Adds a function to refresh layers via <code><a href="../reference/felt_refresh_layer.html">felt_refresh_layer()</a></code>.</li>
+<li>Adds a function to download a layer with <code><a href="../reference/felt_get_map.html">felt_get_map_layer()</a></code>.</li>
+<li>Adds support for interacting with layer groups, with <code>felt_get_map_layer_groups()</code> and <code><a href="../reference/felt_update_layer_group_details.html">felt_update_layer_group_details()</a></code>.</li>
+<li>Adds functions to work with elements, including <code><a href="../reference/felt_get_map_elements.html">felt_get_map_elements()</a></code>, <code>felt_add_map_element()</code>, <code>felt_delete_map_element()</code>, <code><a href="../reference/felt_get_map_elements.html">felt_get_map_elements_in_group()</a></code>, and <code><a href="../reference/felt_get_map_elements.html">felt_get_map_element_groups()</a></code>.</li>
+<li>Adds functions for library-level data with <code><a href="../reference/felt_get_library.html">felt_get_library()</a></code>, <code><a href="../reference/felt_add_library_layer.html">felt_add_library_layer()</a></code>, and <code><a href="../reference/felt_add_library_layer_group.html">felt_add_library_layer_group()</a></code>.</li>
+<li>Removes the <code>felt_finish_upload()</code> function, as it is no longer needed.</li>
+<li>Removes the <code>felt_get_style()</code> function, as it was removed from the API. Instead, use <code><a href="../reference/felt_get_map.html">felt_get_map_layers()</a></code> which now includes style information for the layer.</li>
+</ul></li>
+<li>Adds a <code>clean</code> argument to all functions to control whether a <code><a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a></code> or <code>list</code> should be returned. This allows for more flexibility for advanced users, especially when working with custom Felt style language inputs.</li>
+<li>Adds improvements to working with keys by adding aliases <code><a href="../reference/set_felt_key.html">felt_set_key()</a></code>, <code><a href="../reference/key.html">felt_get_key()</a></code>, and <code><a href="../reference/key.html">felt_has_key()</a></code>.</li>
+<li>
+<code><a href="../reference/key.html">get_felt_key()</a></code> now returns the key invisibly to avoid printing to the console.</li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.4" id="feltr-004">feltr 0.0.4<a class="anchor" aria-label="anchor" href="#feltr-004"></a></h2><p class="text-muted">CRAN release: 2023-11-05</p>
 <ul><li>Removes <code>felt_get_map_geojson()</code> and <code>felt_get_map_sf()</code>, as Felt removed these capabilities. These will be restored in a future version, once the capabilities are available again.</li>
 </ul></div>
@@ -55,7 +72,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.2" id="feltr-002">feltr 0.0.2<a class="anchor" aria-label="anchor" href="#feltr-002"></a></h2><p class="text-muted">CRAN release: 2023-07-06</p>
-<ul><li>Adds path arguments to <code>felt_set_key()</code> and <code>felt_get_map_sf()</code> to ensure compliance with CRAN policies in writing files.</li>
+<ul><li>Adds path arguments to <code><a href="../reference/set_felt_key.html">felt_set_key()</a></code> and <code>felt_get_map_sf()</code> to ensure compliance with CRAN policies in writing files.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.0.1" id="feltr-001">feltr 0.0.1<a class="anchor" aria-label="anchor" href="#feltr-001"></a></h2>

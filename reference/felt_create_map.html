@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">feltr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,10 @@
 <span>  layer_urls <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  lat <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  lon <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  zoom <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  zoom <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  description <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  public_access <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  clean <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -68,7 +71,8 @@
 
 
 <dt>basemap</dt>
-<dd><p>Basemap for the new map. Defaults to <code>NULL</code>. Can be a URL or color hex code</p></dd>
+<dd><p>Basemap for the new map. Defaults to <code>NULL</code>. Can be a URL or color hex code.
+Text options include <code>'default'</code> (same as <code>NULL</code>), <code>'light'</code>, <code>'dark'</code>, or <code>'satellite'</code>.</p></dd>
 
 
 <dt>layer_urls</dt>
@@ -84,7 +88,20 @@
 
 
 <dt>zoom</dt>
-<dd><p>zoom level to initialize the map with.</p></dd>
+<dd><p>zoom level to initialize the map with. Defaults to <code>NULL</code>.</p></dd>
+
+
+<dt>description</dt>
+<dd><p>Description for the map legend. Defaults to <code>NULL</code>.</p></dd>
+
+
+<dt>public_access</dt>
+<dd><p>Degree of public acess. Defaults to <code>NULL</code>, which is <code>view_only</code>.
+Text options also include <code>'private'</code>, <code>'view_and_comment'</code>, and <code>'view_comment_and_edit'</code>.</p></dd>
+
+
+<dt>clean</dt>
+<dd><p>logical, whether to turn the API response into a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a></p></dd>
 
 </dl></div>
     <div class="section level2">

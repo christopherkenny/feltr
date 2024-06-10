@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">feltr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,38 +55,48 @@
 <span>  <span class="va">map_id</span>,</span>
 <span>  name <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  file_names <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  fill_color <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  stroke_color <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  lat <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  lng <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  zoom <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  clean <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>map_id</dt>
-<dd><p>map identifier from url, from <code>https://felt.com/map/Readable-Name-map_id</code></p></dd>
+<dd><p>character, map identifier from url, from <code>https://felt.com/map/Readable-Name-map_id</code></p></dd>
 
 
 <dt>name</dt>
-<dd><p>Name of the layer</p></dd>
+<dd><p>Name of the layer. Required.</p></dd>
 
 
 <dt>file_names</dt>
-<dd><p>Files to include</p></dd>
+<dd><p>Files to include. Required.</p></dd>
 
 
-<dt>fill_color</dt>
-<dd><p>Color to fill shape with, typically a hexcode. Defaults to <code>NULL</code>.v</p></dd>
+<dt>lat</dt>
+<dd><p>For images, the latitude of the center of the image. Optional.</p></dd>
 
 
-<dt>stroke_color</dt>
-<dd><p>Color to outline shape with, typically a hexcode. Defaults to <code>NULL</code>.</p></dd>
+<dt>lng</dt>
+<dd><p>For images, the longitude of the center of the image. Optional.</p></dd>
+
+
+<dt>zoom</dt>
+<dd><p>For images, the zoom level of the image. Optional.</p></dd>
+
+
+<dt>clean</dt>
+<dd><p>logical, whether to turn the API response into a <a href="https://tibble.tidyverse.org/reference/tibble.html" class="external-link">tibble::tibble</a></p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>a string with the id for the created layer</p>
+<p>status of the upload</p>
     </div>
 
     <div class="section level2">
@@ -94,10 +104,8 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># has_felt_key()</span></span></span>
 <span class="r-in"><span><span class="va">layer</span> <span class="op">&lt;-</span> <span class="fu">felt_add_map_layers</span><span class="op">(</span>map_id <span class="op">=</span> <span class="st">'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA'</span>,</span></span>
 <span class="r-in"><span>                    file_names <span class="op">=</span> <span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/path_package.html" class="external-link">path_package</a></span><span class="op">(</span><span class="st">'feltr'</span>,  <span class="st">'towns.geojson'</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>                    name <span class="op">=</span> <span class="st">'Towns'</span><span class="op">)</span></span></span>
+<span class="r-in"><span>                    name <span class="op">=</span> <span class="st">'Towns  test'</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">layer</span></span></span>
-<span class="r-in"><span><span class="co"># and delete layer</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="felt_delete_map_layer.html">felt_delete_map_layer</a></span><span class="op">(</span>map_id <span class="op">=</span> <span class="st">'TBI8sDkmQjuK2GX9CSiHiUA'</span>, layer_id <span class="op">=</span> <span class="va">layer</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
