@@ -18,7 +18,7 @@ a \link[tibble:tibble]{tibble::tibble} for the map
 Export Comments on an Existing Map
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 felt_get_comments(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 \dontshow{\}) # examplesIf}
 }

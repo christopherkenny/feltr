@@ -22,7 +22,7 @@ a \link[tibble:tibble]{tibble::tibble} with upload information
 Refresh an existing layer
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 felt_refresh_layer(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
                   layer_id = 'rCfurZSFShycXHCBw69CdKB',
                   file_names = fs::path_package('feltr',  'towns.geojson'))

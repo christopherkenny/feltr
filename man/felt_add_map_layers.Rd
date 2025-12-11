@@ -36,7 +36,7 @@ status of the upload
 Add Layers to Existing Map
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 layer <- felt_add_map_layers(map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
                     file_names = fs::path_package('feltr',  'towns.geojson'),
                     name = 'Towns  test')

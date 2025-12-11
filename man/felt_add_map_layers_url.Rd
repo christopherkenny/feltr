@@ -23,7 +23,7 @@ See \href{https://feltmaps.notion.site/b26d739e80184127872faa923b55d232?pvs=25#3
 for detailed examples of potential URLs.
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 # split the URL for length reasons
 url <- paste0(
 'https://www.rocklandgis.com/portal/sharing/rest/',

@@ -22,7 +22,7 @@ a \link[tibble:tibble]{tibble::tibble} if \code{clean = TRUE}, otherwise a list
 Add layer group to library
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 felt_add_library_layer_group(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',
                             layer_group_id = 'rHxyTef7S9CO8W7n1PvBVwC',
                             name = paste0('Test layer group ', Sys.time()))

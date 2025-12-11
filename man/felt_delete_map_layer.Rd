@@ -20,7 +20,7 @@ response code
 Delete Layer from an Existing Map
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 # split the URL for length reasons
 url <- paste0(
 'https://www.rocklandgis.com/portal/sharing/rest/',

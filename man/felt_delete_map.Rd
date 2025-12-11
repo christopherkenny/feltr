@@ -16,7 +16,7 @@ response code
 Delete an existing map
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 map <- felt_create_map(title = 'feltr example')
 felt_delete_map(map_id = map$id)
 \dontshow{\}) # examplesIf}

@@ -31,7 +31,7 @@ response data
 Allows for updates to the title, description, and level of public access.
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 felt_update_map_details(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',
                         title = paste0('Rockland 2024 Districts, tested ', Sys.Date()))
 \dontshow{\}) # examplesIf}

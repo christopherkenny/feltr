@@ -1,6 +1,6 @@
 # feltr 0.1.0
 
-* Updates to `v2` of the API, now documented at <https://developers.felt.com/api-reference/maps>.
+* Updates to `v2` of the API, now documented at <https://developers.felt.com/rest-api/getting-started>.
   * Adds a function `felt_update_map_details()` to update the title, description, or privacy of a map.
   * Adds a function to refresh layers via `felt_refresh_layer()`.
   * Adds a function to download a layer with `felt_get_map_layer()`.

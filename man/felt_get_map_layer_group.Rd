@@ -20,7 +20,7 @@ a \link[tibble:tibble]{tibble::tibble} for the layer group, if \code{clean = TRU
 Get information for a layer group
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 felt_get_map_layer_group(
   map_id = 'Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA',
   layer_group_id = 'rHxyTef7S9CO8W7n1PvBVwC'

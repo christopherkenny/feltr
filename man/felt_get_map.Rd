@@ -30,7 +30,7 @@ a \link[tibble:tibble]{tibble::tibble} for the map, if \code{clean = TRUE}, othe
 }
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 felt_get_map('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 felt_get_map_layers('Rockland-2024-Districts-TBI8sDkmQjuK2GX9CSiHiUA')
 \donttest{

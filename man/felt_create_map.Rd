@@ -44,7 +44,7 @@ a \link[tibble:tibble]{tibble::tibble} for the new map
 Create a new map
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 map <- felt_create_map(title = 'feltr example')
 map
 # and delete it again

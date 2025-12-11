@@ -5,10 +5,10 @@ Authors@R:
     person(given = "Christopher T.",
            family = "Kenny",
            role = c("aut", "cre"),
-           email = "christopherkenny@fas.harvard.edu",
+           email = "ctkenny@proton.me",
            comment = c(ORCID = "0000-0002-9386-6860"))
 Description: Upload, download, and edit internet maps with the Felt API 
-    (<https://feltmaps.notion.site/Felt-Public-API-reference-c01e0e6b0d954a678c608131b894e8e1>). 
+    (<https://developers.felt.com/rest-api/getting-started>). 
     Allows users to create new maps, edit existing maps, and extract data.
     Provides tools for working with layers, which represent geographic data, and elements,
     which are interactive annotations. Spatial data accessed from the API is 
@@ -16,7 +16,7 @@ Description: Upload, download, and edit internet maps with the Felt API
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.3
 Imports: 
     cli,
     curl,
@@ -37,3 +37,5 @@ Suggests:
     httptest2,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Depends: 
+    R (>= 4.1.0)

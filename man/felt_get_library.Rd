@@ -18,7 +18,7 @@ a \link[tibble:tibble]{tibble::tibble} if \code{clean = TRUE}, otherwise a list
 List all layers in your workspace library
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 felt_get_library()
 \dontshow{\}) # examplesIf}
 }

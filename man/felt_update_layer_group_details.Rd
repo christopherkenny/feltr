@@ -33,7 +33,7 @@ response data
 Allows for updates to the name, ordering key, and subtitle.
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 felt_update_layer_group_details(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',
                                layer_group_id = 'rHxyTef7S9CO8W7n1PvBVwC',
                                name = 'Polling Sites 2020',

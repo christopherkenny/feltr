@@ -16,7 +16,7 @@ a \link[tibble:tibble]{tibble::tibble} of information about the user
 Obtain information about the user
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 felt_get_user()
 \dontshow{\}) # examplesIf}
 }

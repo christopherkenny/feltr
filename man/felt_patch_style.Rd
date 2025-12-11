@@ -22,7 +22,7 @@ response data
 For details on the Felt Style Language, see \url{https://felt.com/blog/felt-style-language}.
 }
 \examples{
-\dontshow{if (has_felt_key()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (has_felt_key()) withAutoprint(\{ # examplesIf}
 # URL Parks layer
 # read as a list
 layer <- felt_get_map_layer(map_id = 'TBI8sDkmQjuK2GX9CSiHiUA',
