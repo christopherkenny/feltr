@@ -2,6 +2,8 @@
 
 ## feltr 0.1.0
 
+CRAN release: 2025-12-11
+
 - Updates to `v2` of the API, now documented at
   <https://developers.felt.com/rest-api/getting-started>.
   - Adds a function
