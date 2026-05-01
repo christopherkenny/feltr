@@ -13,6 +13,7 @@ You can install the stable version of `feltr` from
 [CRAN](https://cran.r-project.org/package=feltr) with:
 
 ``` r
+
 install.package('feltr')
 ```
 
@@ -20,6 +21,7 @@ You can install the development version of `feltr` from
 [GitHub](https://github.com/christopherkenny/feltr) with:
 
 ``` r
+
 remotes::install_github('christopherkenny/feltr')
 ```
 
@@ -35,6 +37,7 @@ loaded for persistent use with
 We can create a map, add some data to it, and even delete it.
 
 ``` r
+
 library(feltr)
 ## create a map
 map <- felt_create_map(title = 'feltr README')
@@ -43,6 +46,7 @@ map <- felt_create_map(title = 'feltr README')
 Then we can add some data to it from a URL.
 
 ``` r
+
 felt_add_map_layers_url(
   map_id = map$id, 
   url = 'https://www.rocklandgis.com/portal/sharing/rest/content/items/73fc78cb0fb04580b4788937fe5ee697/data',
@@ -56,6 +60,7 @@ felt_add_map_layers_url(
 Finally, we can even delete the map from R.
 
 ``` r
+
 felt_delete_map(map_id = map$id)
 #> [1] 204
 ```
