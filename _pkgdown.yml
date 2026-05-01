@@ -1,6 +1,7 @@
 url: http://christophertkenny.com/feltr/
 template:
   bootstrap: 5
+  package: ctktemplate
 reference:
   - title: Work with Maps
     desc: Operate on a map
